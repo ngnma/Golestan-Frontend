@@ -10,7 +10,7 @@ import M9_RegistrationList from './pages/Manager/M9_RegistrationList';
 import { ThemeProvider } from '@mui/material/styles';
 
 //test
-import M2_CourseItem from './components/Manager/StudentItem/M2_CourseItem';
+import M2_CourseItem from './components/Manager/M2_CourseItem';
 
 function App() {
   return (
