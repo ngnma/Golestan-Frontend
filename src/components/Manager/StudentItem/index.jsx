@@ -6,7 +6,6 @@ import Avatar from '@mui/material/Avatar';
 
 export default function StudentItem(props) {
     return (
-        
         <div style={{ width: '300px' }}>
             <Box sx={{ flexGrow: 1 }} >
                 <Grid container spacing={2} >
@@ -19,7 +18,5 @@ export default function StudentItem(props) {
                 </Grid>
             </Box>
         </div>
-        
-
     )
 }

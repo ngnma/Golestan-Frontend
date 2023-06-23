@@ -90,7 +90,7 @@ export default function Sidebar() {
       navigate('/M11');
     }
     if(text==='مشاهده لیست ترم ها'){
-      navigate('/M9');
+      navigate('/M9');//M2
     }
     console.log(text);
   }
