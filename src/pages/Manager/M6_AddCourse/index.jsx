@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Autocomplete from '@mui/material/Autocomplete';
+import Button from '@mui/material/Button';
 
 import TextField from '@mui/material/TextField';
 
@@ -78,6 +79,7 @@ export default function M6_AddCourse() {
                 </div>
                 <div className='addCourseItem'></div>
             </div>
+            <Button id="M6_Button" variant="contained" >ثبت جدید یا تغییر اطلاعات</Button>
         </DashboardLayout>
     );
 }
