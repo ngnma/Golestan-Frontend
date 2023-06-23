@@ -8,6 +8,7 @@ import M10_StudentList from './pages/Manager/StudentsList';
 import M11_ProfessorList from './pages/Manager/M11_ProfessorList';
 import M9_RegistrationList from './pages/Manager/M9_RegistrationList';
 import { ThemeProvider } from '@mui/material/styles';
+import M2_TermList from './pages/Manager/M2_TermList';
 
 //test
 import M2_CourseItem from './components/Manager/M2_CourseItem';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/M11" element={<M11_ProfessorList />}></Route>
             <Route path="/M9" element={<M9_RegistrationList />}></Route>
             <Route path='/test' element={<M2_CourseItem/>}></Route>
+            <Route path='/M2' element={<M2_TermList/>}></Route>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

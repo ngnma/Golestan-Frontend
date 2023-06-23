@@ -11,35 +11,27 @@ import IconButton from '@mui/material/IconButton';
 
 
 
-export default function M2_CourseItem() {
-  // return (
-  //     <div style={{ width: '300px' }}>
-  //         <Box sx={{ flexGrow: 1 }}>
-  //             <Grid container spacing={2} direction="row" alignItems="center">
-  //                 <Button variant="contained">ویرایش</Button>
-  //                 <Button variant="outlined">حذف</Button>
-  //                 <p>ترم پاییز ۱۴۰۱</p>
-  //             </Grid>
-  //         </Box>
-  //     </div>
-  // );
+export default function M2_CourseItem(props) {
+  const handleRemove = () => {
+    // Call the removeItem callback function with the item's index
+    props.removeItem(props.index);
+  };
   return (
-      <div style={{ width: '500px' ,backgroundColor:"#B2CDFE"}}>
+      <div style={{ width: '500px' ,backgroundColor:"#B2CDFE", borderRadius:'10px'}}>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2} direction="row" >
             <Grid item xs={3} >
-              <Button variant="contained" className="M2_btn" >حذف</Button>
+              <Button variant="contained" className="M2_btn" onClick={handleRemove}>حذف</Button>
             </Grid>
             <Grid item xs={3} >
               <Button variant="outlined" className="M2_btn">ویرایش</Button>
             </Grid>
             <Grid item xs={6}>
-              <p>ترم پاییز ۱۴۰۱</p>
+              <p>{props.name}</p>
             </Grid>
           </Grid>
         </Box>
       </div>
     );
-
 };
 
