@@ -3,10 +3,10 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Theme from "./Theme/ThemeGenerator";
-import Sidebar from "./components/Sidebar"
 
-import StudentItem from './components/Manager/StudentItem';
-import StudentList from './pages/Manager/StudentsList';
+import M10_StudentList from './pages/Manager/StudentsList';
+import M11_ProfessorList from './pages/Manager/M11_ProfessorList';
+import M9_RegistrationList from './pages/Manager/M9_RegistrationList';
 import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/test" element={<StudentItem />}></Route>
-            <Route path="/test2" element={<StudentList />}></Route>
-            <Route path="/test3" element={<Sidebar />}></Route>
+            <Route path="/M10" element={<M10_StudentList />}></Route>
+            <Route path="/M11" element={<M11_ProfessorList />}></Route>
+            <Route path="/M9" element={<M9_RegistrationList />}></Route>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

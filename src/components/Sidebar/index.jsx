@@ -18,6 +18,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import {useNavigate} from "react-router-dom"
 
 const drawerWidth = 240;
 
@@ -69,6 +70,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function Sidebar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [option, setOption] = React.useState("");
+  const navigate = useNavigate()
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -77,6 +80,20 @@ export default function Sidebar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleOptionSelected=(text)=>{
+    setOption(text);
+    if(text==='مشاهده لیست دانشجویان'){
+      navigate('/M10');
+    }
+    if(text==='مشاهده ی لیست اساتید'){
+      navigate('/M11');
+    }
+    if(text==='مشاهده لیست ترم ها'){
+      navigate('/M9');
+    }
+    console.log(text);
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -117,7 +134,7 @@ export default function Sidebar() {
         <List>
           {['مشاهده لیست ترم ها', 'مشاهده لیست دانشجویان', 'مشاهده ی لیست اساتید'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={()=>handleOptionSelected(text)}>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
