@@ -64,7 +64,7 @@ export default function M2_TermList() {
         <hr style={{ width: '100%', borderWidth: 0, borderTop: '1px solid black' }} />
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', justifyContent: 'center', marginTop: '7%' }}>
           {termList.map((item, index) => (
-            <M2_CourseItem name={item.name} key={index} removeItem={handleRemoveItem} />
+            <M2_CourseItem name={item.name} key={index} removeItem={handleRemoveItem}  />
           ))}
         </div>
       </div>
