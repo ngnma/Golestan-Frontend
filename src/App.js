@@ -11,6 +11,7 @@ import M9_RegistrationList from './pages/Manager/M9_RegistrationList';
 import { ThemeProvider } from '@mui/material/styles';
 import M2_TermList from './pages/Manager/M2_TermList';
 
+
 //test
 import M2_CourseItem from './components/Manager/M2_CourseItem';
 
@@ -21,7 +22,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />}></Route>
-            <Route path='/test' element={<M2_CourseItem/>}></Route>
+            {/* <Route path='/test' element={</>}></Route> */}
             <Route path='/M2' element={<M2_TermList/>}></Route>
             <Route path='/M6' element={<M6_AddCourse/>}></Route>
             <Route path="/M9" element={<M9_RegistrationList />}></Route>
