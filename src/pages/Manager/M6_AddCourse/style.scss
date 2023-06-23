@@ -1,0 +1,21 @@
+#addCourseContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-evenly;
+    
+}
+
+.addCourseItem{
+    margin-top: 20px;
+    background-color:silver;
+    width:400px;
+    height:150px;
+    display: flex;
+    flex-direction: column;
+}
+.addCourseItemLabel{
+    margin-left: auto;
+    padding: 10px;
+}
