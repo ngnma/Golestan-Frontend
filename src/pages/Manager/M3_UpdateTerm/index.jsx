@@ -3,24 +3,43 @@ import './style.scss';
 import DashboardLayout from '../../../components/DashboardLayout';
 import { Grid, Typography, TextField, Button } from "@mui/material";
 import { Margin } from '@mui/icons-material';
+import Mainlayout from '../../../components/MainLayout';
+
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export default function M3_UpdateTerm(props) {
+  const professorListMock = [
+    { value: 10, name: 'Vahidi' },
+    { value: 20, name: 'Rahmati' }
+  ];
+  const studentListMock = [
+    { value: 10, name: 'Negin' },
+    { value: 20, name: 'Zahra' }
+  ];
+  const [professor, setProfrssor] = React.useState('');
+  const [student, setStudent] = React.useState('');
+
+  const handleChangeProfessor = (event) => {
+    setProfrssor(event.target.value);
+  };
+
+  const handleChangeStudent = (event) => {
+    setStudent(event.target.value);
+  };
+
+  const handleSubmit = ()=>{
+    //API Call post(professor,student,name)
+  }
+
   const { index } = props;
   return (
-    // <DashboardLayout>
-    //   <div style={{
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     alignItems: 'center',
-    //     paddingTop: '8%', // Adjust the padding top value as needed
-    //   }}/>
-    //   <p>ویرایش اطلاعات ترم ؟</p>
-    //   <p>{index}</p>
-
-    // </DashboardLayout>
     <DashboardLayout>
       <Grid container >
-        <Grid item container 
+        <Grid item container
           justifyContent="space-between"
           alignContent="center"
         >
@@ -29,17 +48,19 @@ export default function M3_UpdateTerm(props) {
             <Typography>{index}ویرایش اطلاعات ترم ؟</Typography>
           </Grid>
         </Grid>
-        <hr 
+        <hr
           style={{
             width: "100%",
             borderWidth: 0,
             borderTop: "1px solid black",
           }}
         />
+        <div>
 
+        </div>
         <Grid container >
           <Grid item xs={4}></Grid>
-          <Grid item xs={4} container gap="20%" 
+          <Grid item xs={4} container gap="20%"
           >
             <Grid item container direction="column">
               <Grid item>
@@ -62,7 +83,19 @@ export default function M3_UpdateTerm(props) {
                   <Button variant="contained" className='M3_btn'>افزودن</Button>
                 </Grid>
                 <Grid item flexGrow={5}>
-                  <TextField variant="outlined" style={{ width: "100%" }} />
+
+                <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                      <Select value={professor} onChange={handleChangeProfessor}>
+                        {professorListMock.map((item) => (
+                          <MenuItem key={item.value} value={item.value}>
+                            {item.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </Box>
+
                 </Grid>
               </Grid>
             </Grid>
@@ -79,12 +112,24 @@ export default function M3_UpdateTerm(props) {
                   <Button variant="contained" className='M3_btn'>افزودن</Button>
                 </Grid>
                 <Grid item flexGrow={5}>
-                  <TextField variant="outlined" style={{ width: "100%" }} />
+
+                  <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                      <Select value={student} onChange={handleChangeStudent}>
+                        {studentListMock.map((item) => (
+                          <MenuItem key={item.value} value={item.value}>
+                            {item.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                  </Box>
+
                 </Grid>
               </Grid>
             </Grid>
 
-            <Button itme variant="contained" style={{ width: "100%", height: "50px"}}>ذخیره تغییرات</Button>
+            <Button itme variant="contained" style={{ width: "100%", height: "50px" }} onClick={handleSubmit}>ذخیره تغییرات</Button>
 
           </Grid>
           <Grid item xs={4}></Grid>

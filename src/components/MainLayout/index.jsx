@@ -30,7 +30,7 @@ export default function Mainlayout({children,btn,text,btnText,functionality}) {
           }}
         />
         <Grid item>
-{children}
+          {children}
         </Grid>
       </Grid>
     </DashboardLayout>
