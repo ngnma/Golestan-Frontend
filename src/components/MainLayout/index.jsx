@@ -3,7 +3,7 @@ import DashboardLayout from '../DashboardLayout'
 import { Grid, Typography, Button } from "@mui/material";
 
 
-export default function Mainlayout({btn,text,btnText}) {
+export default function Mainlayout({children,btn,text,btnText,functionality}) {
   return btn===true ?(
     <DashboardLayout>
       <Grid container>
@@ -14,7 +14,7 @@ export default function Mainlayout({btn,text,btnText}) {
           alignContent="center"
         >
           <Grid item>
-            <Button variant="text">
+            <Button variant="text" onClick={functionality}>
               {btnText}
             </Button>
           </Grid>
@@ -30,7 +30,7 @@ export default function Mainlayout({btn,text,btnText}) {
           }}
         />
         <Grid item>
-
+{children}
         </Grid>
       </Grid>
     </DashboardLayout>
@@ -56,7 +56,7 @@ export default function Mainlayout({btn,text,btnText}) {
         }}
       />
       <Grid item>
-
+{children}
       </Grid>
     </Grid>
   </DashboardLayout>

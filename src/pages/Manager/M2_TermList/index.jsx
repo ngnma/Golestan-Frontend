@@ -47,49 +47,18 @@ export default function M2_TermList() {
   const handleAddCourse = () => {
     navigate("/M6");
   };
-
-  // return (
-  //   <DashboardLayout>
-  //     <Grid container>
-  //       <Grid
-  //         container
-  //         item
-  //         justifyContent="space-between"
-  //         alignContent="center"
-  //       >
-  //         <Grid item>
-  //           <Button variant="text" onClick={handleAddCourse}>
-  //             افزودن ترم +
-  //           </Button>
-  //         </Grid>
-  //         <Grid item>
-  //           <Typography>مشاهده لیست ترم ها</Typography>
-  //         </Grid>
-  //       </Grid>
-  //       <hr
-  //         style={{
-  //           width: "100%",
-  //           borderWidth: 0,
-  //           borderTop: "1px solid black",
-  //         }}
-  //       />
-  //       <Grid container item>
-  //         <Grid container justifyContent='center'>
-  //           {termList.map((item, index) => (
-  //             <M2_CourseItem
-  //               name={item.name}
-  //               key={index}
-  //               removeItem={handleRemoveItem}
-  //             />
-  //           ))}
-  //         </Grid>
-  //       </Grid>
-  //     </Grid>
-  //   </DashboardLayout>
-  // );
-  return(
-    <Mainlayout btn={true} text={"مشاهده لیست ترم ها"} btnText={"افزودن ترم +"} >
-
+ 
+  return (
+    <Mainlayout btn={true} text={"مشاهده لیست ترم ها"} btnText={"افزودن ترم +"} functionality={handleAddCourse}>
+      <Grid container justifyContent='center'>
+        {termList.map((item, index) => (
+          <M2_CourseItem
+            name={item.name}
+            key={index}
+            removeItem={handleRemoveItem}
+          />
+        ))}
+      </Grid>
     </Mainlayout>
   )
 }
