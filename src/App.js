@@ -16,6 +16,7 @@ import M11_ProfessorList from './pages/Manager/M11_ProfessorList';
 
 //test
 import M2_CourseItem from './components/Manager/M2_CourseItem';
+import Test from './pages/test';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />}></Route>
-            {/* <Route path='/test' element={</>}></Route> */}
+            <Route path='/test' element={<Test/>}></Route>
             <Route path='/M2' element={<M2_TermList/>}></Route>
             <Route path='/M3' element={<M3_UpdateTerm/>}></Route>
             <Route path='/M4' element={<M4_CoursesList/>}></Route>
