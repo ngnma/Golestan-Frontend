@@ -1,31 +1,105 @@
-import { React, useEffect, useState } from 'react';
-import StudentItem from '../../../components/Manager/StudentItem';
-import profile from '../../../assets/profile18.png';
-import DashboardLayout from '../../../components/DashboardLayout';
-import M2_CourseItem from '../../../components/Manager/M2_CourseItem';
-import Divider from '@mui/material/Divider';
-import Button from '@mui/material/Button';
-import {useNavigate} from 'react-router-dom'
+// import { React, useEffect, useState } from 'react';
+// import StudentItem from '../../../components/Manager/StudentItem';
+// import profile from '../../../assets/profile18.png';
+// import DashboardLayout from '../../../components/DashboardLayout';
+// import M2_CourseItem from '../../../components/Manager/M2_CourseItem';
+// import Divider from '@mui/material/Divider';
+// import Button from '@mui/material/Button';
+// import {useNavigate} from 'react-router-dom'
+
+// export default function M2_TermList() {
+//   //mock data
+//   const termList2 = [
+//     { name: "1" },
+//     { name: "7" },
+//     { name: "6" },
+//     { name: "5" },
+//     { name: "4" },
+//     { name: "3" },
+//     { name: "2" },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//     // { name: 'ترم پاییز ۱۴۰۱' },
+//   ];
+//   const [termList, setTermList] = useState([]);
+//   const navigate = useNavigate();
+
+//   const handleRemoveItem = (index) => {
+//     const updatedList = [...termList];
+//     updatedList.splice(index, 1);
+//     setTermList(updatedList);
+//   };
+
+//   useEffect(() => {
+//     //get studentList2 from back and remove mock data
+//     setTermList(termList2);
+//   }, []);
+//   useEffect(() => {
+//     //call api delete_course
+//   }, [termList]);
+
+//   const handleAddCourse = () => {
+//     navigate('/M6')
+//   }
+
+//   return (
+//     <DashboardLayout>
+//       <div style={{
+//         display: 'flex',
+//         flexDirection: 'column',
+//         alignItems: 'center',
+//         paddingTop: '8%', // Adjust the padding top value as needed
+//       }}>
+//         <div className='M2-term-list-footer' style={{ display: 'flex', justifyContent: 'space-between' }}>
+//           <Button variant="text" onClick={handleAddCourse}>افزودن ترم +</Button>
+//           <p>مشاهده لیست ترم ها</p>
+//         </div>
+
+//         <hr style={{ width: '100%', borderWidth: 0, borderTop: '1px solid black' }} />
+//         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', justifyContent: 'center', marginTop: '7%' }}>
+//           {termList.map((item, index) => (
+//             <M2_CourseItem name={item.name} key={index} removeItem={handleRemoveItem}  />
+//           ))}
+//         </div>
+//       </div>
+//     </DashboardLayout>
+//   );
+// }
+
+
+import { React, useEffect, useState } from "react";
+import DashboardLayout from "../../../components/DashboardLayout";
+import M2_CourseItem from "../../../components/Manager/M2_CourseItem";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import { Grid } from "@mui/material";
+import { Typography } from "@mui/material";
 
 export default function M2_TermList() {
   //mock data
   const termList2 = [
-    { name: "1" },
-    { name: "7" },
-    { name: "6" },
-    { name: "5" },
-    { name: "4" },
-    { name: "3" },
-    { name: "2" },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
-    // { name: 'ترم پاییز ۱۴۰۱' },
+    // { name: "1" },
+    // { name: "7" },
+    // { name: "6" },
+    // { name: "5" },
+    // { name: "4" },
+    // { name: "3" },
+    // { name: "2" },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
+    { name: 'ترم پاییز ۱۴۰۱' },
   ];
   const [termList, setTermList] = useState([]);
   const navigate = useNavigate();
@@ -45,16 +119,15 @@ export default function M2_TermList() {
   }, [termList]);
 
   const handleAddCourse = () => {
-    navigate('/M6')
-  }
+    navigate("/M6");
+  };
 
   return (
     <DashboardLayout>
-      <div style={{
+      {/* <div className="amoo-khoobi" style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: '8%', // Adjust the padding top value as needed
       }}>
         <div className='M2-term-list-footer' style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Button variant="text" onClick={handleAddCourse}>افزودن ترم +</Button>
@@ -67,7 +140,42 @@ export default function M2_TermList() {
             <M2_CourseItem name={item.name} key={index} removeItem={handleRemoveItem}  />
           ))}
         </div>
-      </div>
+      </div> */}
+      <Grid container>
+        <Grid
+          container
+          item
+          justifyContent="space-between"
+          alignContent="center"
+        >
+          <Grid item>
+            <Button variant="text" onClick={handleAddCourse}>
+              افزودن ترم +
+            </Button>
+          </Grid>
+          <Grid item>
+            <Typography>مشاهده لیست ترم ها</Typography>
+          </Grid>
+        </Grid>
+        <hr
+          style={{
+            width: "100%",
+            borderWidth: 0,
+            borderTop: "1px solid black",
+          }}
+        />
+        <Grid container item>
+          <Grid container justifyContent='center'>
+            {termList.map((item, index) => (
+              <M2_CourseItem
+                name={item.name}
+                key={index}
+                removeItem={handleRemoveItem}
+              />
+            ))}
+          </Grid>
+        </Grid>
+      </Grid>
     </DashboardLayout>
   );
 }
