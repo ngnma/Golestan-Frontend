@@ -12,6 +12,9 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 
 import TextField from '@mui/material/TextField';
+import { Dashboard } from '@mui/icons-material';
+import { Grid, Typography } from '@mui/material';
+
 
 
 
@@ -37,49 +40,60 @@ export default function M6_AddCourse() {
     };
     return (
         <DashboardLayout>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                paddingTop: '8%', // Adjust the padding top value as needed
-            }}></div>
-            <p>افزودن درس جدید</p>
-            <hr style={{ width: '100%', borderWidth: 0, borderTop: '1px solid black' }} />
-            <div id="addCourseContainer">
-                <div className='addCourseItem'>
-                    <label className="addCourseItemLabel">درس</label>
-                    <Autocomplete
-                        disablePortal
-                        options={mockCourse}
-                        sx={{ width: 400 }}
-                        renderInput={(params) => <TextField {...params} label="درس" />}
-                    />
-                </div>
-                <div className='addCourseItem'>
-                    <label className="addCourseItemLabel">استاد</label>
-                    <Autocomplete
-                        disablePortal
-                        options={mockProfessor}
-                        sx={{ width: 400 }}
-                        renderInput={(params) => <TextField {...params} label="استاد" />}
-                    />
-                </div>
-                <div className='addCourseItem'>
-                    <label className="addCourseItemLabel">ظرفیت</label>
-                    <TextField id="outlined-basic" variant="outlined" />
-                </div>
-                <div className='addCourseItem'>
-                    <label className="addCourseItemLabel">تاریخ و ساعت برگزاری کلاس</label>
-                
-
-
-                </div>
-                <div className='addCourseItem'>
-                    <label className="addCourseItemLabel">روز امتحان</label>
-                </div>
-                <div className='addCourseItem'></div>
-            </div>
-            <Button id="M6_Button" variant="contained" >ثبت جدید یا تغییر اطلاعات</Button>
+            <Grid container>
+                <Grid
+                    container
+                    item
+                    justifyContent="space-between"
+                    alignContent="center"
+                >
+                    <Grid item></Grid>
+                    <Grid item>
+                        <Typography>افزودن درس جدید</Typography>
+                    </Grid>
+                </Grid>
+                <hr
+                    style={{
+                        width: "100%",
+                        borderWidth: 0,
+                        borderTop: "1px solid black",
+                    }}
+                />
+                <Grid item>
+                    <div id="addCourseContainer">
+                        <div className='addCourseItem'>
+                            <label className="addCourseItemLabel">درس</label>
+                            <Autocomplete
+                                disablePortal
+                                options={mockCourse}
+                                sx={{ width: 400 }}
+                                renderInput={(params) => <TextField {...params} label="درس" />}
+                            />
+                        </div>
+                        <div className='addCourseItem'>
+                            <label className="addCourseItemLabel">استاد</label>
+                            <Autocomplete
+                                disablePortal
+                                options={mockProfessor}
+                                sx={{ width: 400 }}
+                                renderInput={(params) => <TextField {...params} label="استاد" />}
+                            />
+                        </div>
+                        <div className='addCourseItem'>
+                            <label className="addCourseItemLabel">ظرفیت</label>
+                            <TextField id="outlined-basic" variant="outlined" />
+                        </div>
+                        <div className='addCourseItem'>
+                            <label className="addCourseItemLabel">تاریخ و ساعت برگزاری کلاس</label>
+                        </div>
+                        <div className='addCourseItem'>
+                            <label className="addCourseItemLabel">روز امتحان</label>
+                        </div>
+                        <div className='addCourseItem'></div>
+                    </div>
+                    <Button id="M6_Button" variant="contained" >ثبت جدید یا تغییر اطلاعات</Button>
+                </Grid>
+            </Grid>
         </DashboardLayout>
     );
 }
