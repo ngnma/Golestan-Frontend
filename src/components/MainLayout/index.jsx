@@ -1,10 +1,10 @@
 import React from 'react'
 import DashboardLayout from '../DashboardLayout'
-import { Grid , Typography} from "@mui/material";
+import { Grid, Typography, Button } from "@mui/material";
 
 
-export default function Mainlayout() {
-  return (
+export default function Mainlayout({btn,text,btnText}) {
+  return btn===true ?(
     <DashboardLayout>
       <Grid container>
         <Grid
@@ -14,12 +14,12 @@ export default function Mainlayout() {
           alignContent="center"
         >
           <Grid item>
-            <Button variant="text" onClick={handleAddCourse}>
-              افزودن ترم +
+            <Button variant="text">
+              {btnText}
             </Button>
           </Grid>
           <Grid item>
-            <Typography>مشاهده لیست ترم ها</Typography>
+            <Typography>{text}</Typography>
           </Grid>
         </Grid>
         <hr
@@ -34,5 +34,32 @@ export default function Mainlayout() {
         </Grid>
       </Grid>
     </DashboardLayout>
-  )
+  ):(    
+  <DashboardLayout>
+    <Grid container>
+      <Grid
+        container
+        item
+        justifyContent="space-between"
+        alignContent="center"
+      >
+        <Grid/>
+        <Grid item>
+          <Typography>مشاهده لیست ترم ها</Typography>
+        </Grid>
+      </Grid>
+      <hr
+        style={{
+          width: "100%",
+          borderWidth: 0,
+          borderTop: "1px solid black",
+        }}
+      />
+      <Grid item>
+
+      </Grid>
+    </Grid>
+  </DashboardLayout>
+  );
+
 }
