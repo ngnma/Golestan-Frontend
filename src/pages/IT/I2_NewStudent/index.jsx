@@ -35,9 +35,9 @@ export default function FormExample() {
     setCourses((prevCourses) => [...prevCourses, course]);
     setCours("");
     setFormData2((prevFormData) => ({
-        ...prevFormData,
-        passed_courses: courses,
-      }));
+      ...prevFormData,
+      passed_courses: courses,
+    }));
   };
   const handleChangeCourse = (event) => {
     const { value } = event.target;
@@ -93,86 +93,98 @@ export default function FormExample() {
   return (
     <DashboardLayout>
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2} direction="row-reverse">
-          <Grid container item xs={6} direction="column">
-            <Grid item>
+        <Grid container direction="row-reverse" >
+          <Grid container item xs={6} direction="column" gap="20px" justifyContent="space-between" >
+            <Grid item >
               <label>نام</label>
               <br />
               <TextField
+                style={{ width: "60%" }}
                 name="first_name"
                 value={formData2.first_name}
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item>
+            <Grid item >
               <labell>نام خانوادگی</labell>
               <br />
               <TextField
+                style={{ width: "60%" }}
                 name="last_name"
                 value={formData2.last_name}
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item>
+            <Grid item >
               <label>شماوه دانشجویی</label>
               <br />
               <TextField
+                style={{ width: "60%" }}
                 name="id"
                 value={formData2.id}
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item>
+            <Grid item >
               <label>کد ملی</label>
               <br />
               <TextField
+                style={{ width: "60%" }}
                 name="national_code"
                 value={formData2.national_code}
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item>
+            <Grid item >
               <label>دروس پاس کرده </label>
               <br />
               <Button
+                style={{ width: "10%", height: "70%", marginRight: "5px" }}
                 variant="contained"
                 color="primary"
                 onClick={handleAddCourse}
               >
                 افزودن
               </Button>
-              <TextField name="" value={course} onChange={handleChangeCourse} />
+              <TextField style={{ width: "50%" }} name="" value={course} onChange={handleChangeCourse} />
             </Grid>
           </Grid>
-          <Grid container item xs={6} direction="column">
-            <Grid item>
+          <Grid container item xs={6} direction="column" gap="20px" justifyContent="flex-start" >
+            <Grid item >
               <label>رشته</label>
               <br />
-              <Autocomplete
-                disablePortal
-                options={majors}
-                sx={{ width: 300 }}
-                value={major}
-                onChange={handleMajorChange}
-                renderInput={(params) => <TextField {...params} />}
-              />
+              <div style={{  margin: "0 auto",width: "60%" }}>
+                <Autocomplete
+
+                  disablePortal
+                  options={majors}
+                  value={major}
+                  onChange={handleMajorChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </div>
+
             </Grid>
             <Grid item>
               <label>دانشکده</label>
               <br />
-              <Autocomplete
-                disablePortal
-                options={facultys}
-                sx={{ width: 300 }}
-                value={faculty}
-                onChange={handleFacultyChange}
-                renderInput={(params) => <TextField {...params} />}
-              />
+              <div style={{  margin: "0 auto",width: "60%" }}>
+                <Autocomplete
+
+                  disablePortal
+                  options={facultys}
+                  value={faculty}
+                  onChange={handleFacultyChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </div>
+
             </Grid>
             <Grid item>
               <label>سال ورود</label>
               <br />
               <TextField
+                style={{ width: "60%" }}
                 name="entry_year"
                 value={formData2.entry_year}
                 onChange={handleChange}
@@ -182,14 +194,18 @@ export default function FormExample() {
               <label>استاد راهنما</label>
               <br />
               <TextField
+                style={{ width: "60%" }}
                 name="peroffesor"
                 value={formData2.peroffesor}
                 onChange={handleChange}
               />
             </Grid>
+
+          
           </Grid>
         </Grid>
-        <Button type="submit" variant="contained" color="primary">
+
+        <Button style={{ marginTop: "40px", height: "50px", width: "300px" }} type="submit" variant="contained" color="primary">
           ثبت جدید/تغییر اطلاعات
         </Button>
       </form>
