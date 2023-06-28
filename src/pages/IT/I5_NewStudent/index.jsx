@@ -93,118 +93,115 @@ export default function I5_NewStudent() {
   return (
     <DashboardLayout>
       <p>ثبت / تغییر اطلاعات دانشجو جدید</p>
-      <div style={{marginTop:"20px"}}>
+      <div style={{ marginTop: "20px" }}>
         <form onSubmit={handleSubmit}>
-          <Grid container direction="row-reverse" >
-            <Grid container item xs={6} direction="column" gap="20px" justifyContent="space-between" >
-              <Grid item >
-                <label>نام</label>
-                <br />
-                <TextField
-                  style={{ width: "60%" }}
-                  name="first_name"
-                  value={formData2.first_name}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item >
-                <labell>نام خانوادگی</labell>
-                <br />
-                <TextField
-                  style={{ width: "60%" }}
-                  name="last_name"
-                  value={formData2.last_name}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item >
-                <label>شماوه دانشجویی</label>
-                <br />
-                <TextField
-                  style={{ width: "60%" }}
-                  name="id"
-                  value={formData2.id}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item >
-                <label>کد ملی</label>
-                <br />
-                <TextField
-                  style={{ width: "60%" }}
-                  name="national_code"
-                  value={formData2.national_code}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item >
-                <label>دروس پاس کرده </label>
-                <br />
-                <Button
-                  style={{ width: "10%", height: "70%", marginRight: "5px" }}
-                  variant="contained"
-                  color="primary"
-                  onClick={handleAddCourse}
-                >
-                  افزودن
-                </Button>
-                <TextField style={{ width: "50%" }} name="" value={course} onChange={handleChangeCourse} />
-              </Grid>
+          <Grid container direction="row-reverse" gap="20px 300px" justifyContent="space-evenly"  >
+
+            <Grid item >
+              <label>نام</label>
+              <br />
+              <TextField
+                style={{ width: "300px" }}
+                name="first_name"
+                value={formData2.first_name}
+                onChange={handleChange}
+              />
             </Grid>
-            <Grid container item xs={6} direction="column" gap="20px" justifyContent="flex-start" >
-              <Grid item >
-                <label>رشته</label>
-                <br />
-                <div style={{ margin: "0 auto", width: "60%" }}>
-                  <Autocomplete
+            <Grid item >
+              <labell>نام خانوادگی</labell>
+              <br />
+              <TextField
+                style={{ width: "300px" }}
+                name="last_name"
+                value={formData2.last_name}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item >
+              <label>شماوه دانشجویی</label>
+              <br />
+              <TextField
+                style={{ width: "300px" }}
+                name="id"
+                value={formData2.id}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item >
+              <label>کد ملی</label>
+              <br />
+              <TextField
+                style={{ width: "300px" }}
+                name="national_code"
+                value={formData2.national_code}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item >
+              <label>دروس پاس کرده </label>
+              <br />
+              <Button
+                style={{ width: "40px", height: "70%", marginRight: "5px" }}
+                variant="contained"
+                color="primary"
+                onClick={handleAddCourse}
+              >
+                افزودن
+              </Button>
+              <TextField style={{ width: "230px" }} name="" value={course} onChange={handleChangeCourse} />
+            </Grid>
 
-                    disablePortal
-                    options={majors}
-                    value={major}
-                    onChange={handleMajorChange}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </div>
+            <Grid item >
+              <label>رشته</label>
+              <br />
+              <div style={{ margin: "0 auto", width: "300px" }}>
+                <Autocomplete
 
-              </Grid>
-              <Grid item>
-                <label>دانشکده</label>
-                <br />
-                <div style={{ margin: "0 auto", width: "60%" }}>
-                  <Autocomplete
-
-                    disablePortal
-                    options={facultys}
-                    value={faculty}
-                    onChange={handleFacultyChange}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </div>
-
-              </Grid>
-              <Grid item>
-                <label>سال ورود</label>
-                <br />
-                <TextField
-                  style={{ width: "60%" }}
-                  name="entry_year"
-                  value={formData2.entry_year}
-                  onChange={handleChange}
+                  disablePortal
+                  options={majors}
+                  value={major}
+                  onChange={handleMajorChange}
+                  renderInput={(params) => <TextField {...params} />}
                 />
-              </Grid>
-              <Grid item>
-                <label>استاد راهنما</label>
-                <br />
-                <TextField
-                  style={{ width: "60%" }}
-                  name="peroffesor"
-                  value={formData2.peroffesor}
-                  onChange={handleChange}
-                />
-              </Grid>
-
+              </div>
 
             </Grid>
+            <Grid item>
+              <label>دانشکده</label>
+              <br />
+              <div style={{ margin: "0 auto", width: "300px" }}>
+                <Autocomplete
+
+                  disablePortal
+                  options={facultys}
+                  value={faculty}
+                  onChange={handleFacultyChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </div>
+
+            </Grid>
+            <Grid item>
+              <label>سال ورود</label>
+              <br />
+              <TextField
+                style={{ width: "300px" }}
+                name="entry_year"
+                value={formData2.entry_year}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item>
+              <label>استاد راهنما</label>
+              <br />
+              <TextField
+                style={{ width: "300px" }}
+                name="peroffesor"
+                value={formData2.peroffesor}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item style={{ width: "300px" }}></Grid>
           </Grid>
 
           <Button style={{ marginTop: "40px", height: "50px", width: "300px" }} type="submit" variant="contained" color="primary">
