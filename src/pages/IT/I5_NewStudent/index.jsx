@@ -4,6 +4,7 @@ import DashboardLayout from "../../../components/DashboardLayout";
 import { Grid } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 
+
 export default function I5_NewStudent() {
   //MOCKDATA
   const facultys = [
@@ -93,7 +94,8 @@ export default function I5_NewStudent() {
   return (
     <DashboardLayout>
       <p>ثبت / تغییر اطلاعات دانشجو جدید</p>
-      <div style={{ marginTop: "20px" }}>
+      
+      <div style={{ boxShadow: '0 2px 4px rgba(0, 0.4, 0, 0.4)', borderRadius: '8px', padding: '20px'  }}>
         <form onSubmit={handleSubmit}>
           <Grid container direction="row-reverse" gap="20px 300px" justifyContent="space-evenly"  >
 
