@@ -11,9 +11,15 @@ import { useNavigate } from 'react-router-dom';
 export default function M8_Registration() {
     //mock data
     const mock = [
-        { name: "آمار و احتمال مهندسی", count: 12 },
-        { name: "برنامه نویسی پیشرفته", count: 23 },
-        { name: "شبکه های کامپیوتری", count: 1 },
+        { name: "آمار و احتمال مهندسی", count: 12 ,professor:"دکتر عبدوس"},
+        { name: "برنامه نویسی پیشرفته", count: 25 ,professor:"دکتر وحیدی"},
+        { name: "شبکه های کامپیوتری", count: 1 ,professor:"دکتر عباسپور"},
+        { name: "آمار و احتمال مهندسی", count: 13 ,professor:"دکتر عبدوس"},
+        { name: "برنامه نویسی پیشرفته", count: 22 ,professor:"دکتر وحیدی"},
+        { name: "شبکه های کامپیوتری", count: 13,professor:"دکتر عباسپور"},
+        { name: "آمار و احتمال مهندسی", count: 19 ,professor:"دکتر عبدوس"},
+        { name: "برنامه نویسی پیشرفته", count: 24 ,professor:"دکتر وحیدی"},
+        { name: "شبکه های کامپیوتری", count: 14 ,professor:"دکتر عباسپور"}
     ];
     const [alignment, setAlignment] = useState('true');
     const [preRegCourseList, setPreRegCourseList] = useState([]);
@@ -90,6 +96,7 @@ export default function M8_Registration() {
                         {preRegCourseList.map((item, index) => (
                             <M5_CourseItem
                                 name={item.name}
+                                professor={item.professor}
                                 count={item.count}
                                 key={index}
                                 removeItem={handleRemoveItem}

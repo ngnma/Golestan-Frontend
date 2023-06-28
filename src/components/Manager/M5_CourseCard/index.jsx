@@ -1,4 +1,4 @@
-import  {React, useState} from 'react';
+import { React, useState } from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Button, Grid, Box } from '@mui/material';
@@ -12,7 +12,7 @@ export default function M5_CourseItem(props) {
     const handleRemove = () => {
         // Call the removeItem callback function with the item's index
         props.removeItem(props.index);
-      };
+    };
     const fullInformation = () => {
         setSelectedIndex(props.index);
         navigate('/M7');
@@ -21,7 +21,7 @@ export default function M5_CourseItem(props) {
     return (
         <Grid item sx={{ width: '500px', backgroundColor: "#B2CDFE", borderRadius: '10px', m: 1 }}>
             <Box sx={{ flexGrow: 1 }}>
-                <Grid container  justifyContent="space-around" >
+                <Grid container justifyContent="space-around" alignItems="baseline" >
                     <Grid item  >
                         <Button variant="outlined" className="M2_btn" onClick={handleRemove}>حذف</Button>
                     </Grid>
@@ -29,12 +29,11 @@ export default function M5_CourseItem(props) {
                         <Button variant="outlined" className="M2_btn" onClick={fullInformation}>اطلاعات کامل</Button>
                     </Grid>
                     <Grid item >
-                        <p>{props.count}</p>
+                        <p> {props.count} </p>
                     </Grid>
                     <Grid item >
-                        <p>{props.name}</p>
+                        <p>{props.name}<br /><span style={{fontSize:"11px"}}>{props.professor}</span></p>
                     </Grid>
-
                 </Grid>
             </Box>
         </Grid>
