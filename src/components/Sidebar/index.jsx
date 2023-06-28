@@ -19,6 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import {useNavigate} from "react-router-dom"
+import { PropaneSharp } from '@mui/icons-material';
 
 const drawerWidth = 240;
 
@@ -67,7 +68,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-start',
 }));
 
-export default function Sidebar() {
+export default function Sidebar(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [option, setOption] = React.useState("");
@@ -112,7 +113,9 @@ export default function Sidebar() {
           </IconButton>
         </Toolbar>
       </AppBar>
-
+      <Main open={open}>
+      {props.content}
+      </Main>
       <Drawer
         sx={{
           width: drawerWidth,
