@@ -7,6 +7,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import DashboardLayout from '../../../components/DashboardLayout';
 import M5_CourseItem from '../../../components/Manager/M5_CourseCard';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function M5_PreRegistration() {
     //mock data
@@ -24,6 +25,7 @@ export default function M5_PreRegistration() {
     const [alignment, setAlignment] = useState('true');
     const [preRegCourseList, setPreRegCourseList] = useState([]);
     const navigate = useNavigate();
+    const termName = useSelector((state) => state.m3_termname);//redux
 
     useEffect(() => {
         //get mock from back and remove mock data
@@ -65,7 +67,7 @@ export default function M5_PreRegistration() {
                     </Grid>
                     <Grid item>
                         {/* text should be handled by redux */}
-                        <Typography>دروس پیش ثبت نامی پاییز?</Typography>
+                        <Typography>دروس پیش ثبت نامی {termName}</Typography>
                     </Grid>
                 </Grid>
                 <hr
