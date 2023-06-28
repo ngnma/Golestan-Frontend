@@ -16,6 +16,9 @@ import M9_RegistrationList from './pages/Manager/M9_RegistrationList';
 import M10_StudentList from './pages/Manager/StudentsList';
 import M11_ProfessorList from './pages/Manager/M11_ProfessorList';
 
+//IT
+import I2_NewStudent from './pages/IT/I2_NewStudent'
+
 
 //test
 import M2_CourseItem from './components/Manager/M2_CourseItem';
@@ -41,6 +44,8 @@ function App() {
             <Route path="/M9" element={<M9_RegistrationList />}></Route>
             <Route path="/M10" element={<M10_StudentList />}></Route>
             <Route path="/M11" element={<M11_ProfessorList />}></Route>
+
+            <Route path="/I2" element={<I2_NewStudent />}></Route>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
