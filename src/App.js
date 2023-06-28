@@ -17,7 +17,7 @@ import M10_StudentList from './pages/Manager/StudentsList';
 import M11_ProfessorList from './pages/Manager/M11_ProfessorList';
 
 //IT
-import I2_NewStudent from './pages/IT/I2_NewStudent'
+import I5_NewStudent from './pages/IT/I5_NewStudent'
 
 
 //test
@@ -45,7 +45,7 @@ function App() {
             <Route path="/M10" element={<M10_StudentList />}></Route>
             <Route path="/M11" element={<M11_ProfessorList />}></Route>
 
-            <Route path="/I2" element={<I2_NewStudent />}></Route>
+            <Route path="/I5" element={<I5_NewStudent />}></Route>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
