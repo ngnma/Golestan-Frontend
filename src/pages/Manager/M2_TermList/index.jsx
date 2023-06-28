@@ -8,6 +8,12 @@ import { Typography } from "@mui/material";
 import Mainlayout from "../../../components/MainLayout";
 
 export default function M2_TermList() {
+  // const dispatch = useDispatch();
+
+  // const increment = () => {
+  //   dispatch(setTermName(this.props.name));
+  // };
+
   //mock data
   const termList2 = [
     // { name: "1" },
