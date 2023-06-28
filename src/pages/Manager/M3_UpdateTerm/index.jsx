@@ -10,8 +10,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 
 export default function M3_UpdateTerm(props) {
+  
   const professorListMock = [
     { value: 10, name: 'Vahidi' },
     { value: 20, name: 'Rahmati' }
@@ -22,6 +26,7 @@ export default function M3_UpdateTerm(props) {
   ];
   const [professor, setProfrssor] = React.useState('');
   const [student, setStudent] = React.useState('');
+  const termName = useSelector((state) => state.m3_termname);
 
   const handleChangeProfessor = (event) => {
     setProfrssor(event.target.value);
@@ -35,6 +40,7 @@ export default function M3_UpdateTerm(props) {
     //API Call post(professor,student,name)
   }
 
+
   const { index } = props;
   return (
     <DashboardLayout>
@@ -45,7 +51,7 @@ export default function M3_UpdateTerm(props) {
         >
           <Grid item />
           <Grid item>
-            <Typography>{index}ویرایش اطلاعات ترم ؟</Typography>
+            <Typography>ویرایش اطلاعات {termName} </Typography>
           </Grid>
         </Grid>
         <hr

@@ -1,17 +1,25 @@
-import {useState,React} from 'react';
+import {useState,React, useEffect} from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import "./style.scss";
 
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import * as action from "../../../action"
+
 
 export default function M2_CourseItem(props) {
+
+  const dispatch = useDispatch();
+
+
   const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleUpdate = () => {
     setSelectedIndex(props.index);
+    dispatch(action.setTermName(props.name));
     navigate('/M3');
   };
 
@@ -19,6 +27,7 @@ export default function M2_CourseItem(props) {
     // Call the removeItem callback function with the item's index
     props.removeItem(props.index);
   };
+
 
   return (
       <Grid item sx={{ width: '500px' ,backgroundColor:"#B2CDFE", borderRadius:'10px', m: 1}}>
