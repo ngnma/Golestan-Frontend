@@ -15,11 +15,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         m3_termname: action.payload,
       };
-    case 'DECREMENT':
+    case 'SAVECOURSEID':
       return {
         ...state,
-        count: state.count - 1,
+        m7_courseid: action.payload,
       };
+    case 'SAVECOURSEFULLNAME':
+        return {
+          ...state,
+          m7_coursefullname: action.payload,
+        };
     default:
       return state;
   }

@@ -11,15 +11,13 @@ import * as action from "../../../action"
 
 export default function M2_CourseItem(props) {
 
-  const dispatch = useDispatch();
-
-
+  const dispatch = useDispatch();//redux
   const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const handleUpdate = () => {
     setSelectedIndex(props.index);
-    dispatch(action.setTermName(props.name));
+    dispatch(action.setTermName(props.name));//redux
     navigate('/M3');
   };
 

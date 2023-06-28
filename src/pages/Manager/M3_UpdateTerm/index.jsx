@@ -26,7 +26,7 @@ export default function M3_UpdateTerm(props) {
   ];
   const [professor, setProfrssor] = React.useState('');
   const [student, setStudent] = React.useState('');
-  const termName = useSelector((state) => state.m3_termname);
+  const termName = useSelector((state) => state.m3_termname);//redux
 
   const handleChangeProfessor = (event) => {
     setProfrssor(event.target.value);

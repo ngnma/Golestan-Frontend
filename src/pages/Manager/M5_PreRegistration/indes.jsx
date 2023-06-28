@@ -11,15 +11,15 @@ import { useNavigate } from 'react-router-dom';
 export default function M5_PreRegistration() {
     //mock data
     const mock = [
-        { name: "آمار و احتمال مهندسی", count: 12 ,professor:"دکتر عبدوس"},
-        { name: "برنامه نویسی پیشرفته", count: 25 ,professor:"دکتر وحیدی"},
-        { name: "شبکه های کامپیوتری", count: 1 ,professor:"دکتر عباسپور"},
-        { name: "آمار و احتمال مهندسی", count: 13 ,professor:"دکتر عبدوس"},
-        { name: "برنامه نویسی پیشرفته", count: 22 ,professor:"دکتر وحیدی"},
-        { name: "شبکه های کامپیوتری", count: 13,professor:"دکتر عباسپور"},
-        { name: "آمار و احتمال مهندسی", count: 19 ,professor:"دکتر عبدوس"},
-        { name: "برنامه نویسی پیشرفته", count: 24 ,professor:"دکتر وحیدی"},
-        { name: "شبکه های کامپیوتری", count: 14 ,professor:"دکتر عباسپور"}
+        { id:1, name: "آمار و احتمال مهندسی", count: 12 ,professor:"دکتر عبدوس"},
+        { id:2, name: "برنامه نویسی پیشرفته", count: 25 ,professor:"دکتر وحیدی"},
+        { id:3, name: "شبکه های کامپیوتری", count: 1 ,professor:"دکتر عباسپور"},
+        { id:4, name: "آمار و احتمال مهندسی", count: 13 ,professor:"دکتر عبدوس"},
+        { id:5, name: "برنامه نویسی پیشرفته", count: 22 ,professor:"دکتر وحیدی"},
+        { id:6, name: "شبکه های کامپیوتری", count: 13,professor:"دکتر عباسپور"},
+        { id:7, name: "آمار و احتمال مهندسی", count: 19 ,professor:"دکتر عبدوس"},
+        { id:8, name: "برنامه نویسی پیشرفته", count: 24 ,professor:"دکتر وحیدی"},
+        { id:9, name: "شبکه های کامپیوتری", count: 14 ,professor:"دکتر عباسپور"}
     ];
     const [alignment, setAlignment] = useState('true');
     const [preRegCourseList, setPreRegCourseList] = useState([]);
@@ -39,11 +39,9 @@ export default function M5_PreRegistration() {
     const handleChange = (event, newAlignment) => {
         setAlignment(newAlignment);
         if (alignment === "true") {
-
             preRegCourseList.sort((a, b) => a.count - b.count);
             console.log(preRegCourseList)
         } else {
-
             preRegCourseList.sort((b, a) => a.count - b.count);
             console.log(preRegCourseList)
         }
@@ -100,6 +98,7 @@ export default function M5_PreRegistration() {
                         {preRegCourseList.map((item, index) => (
                             <M5_CourseItem
                                 professor={item.professor}
+                                itemid={item.id}
                                 name={item.name}
                                 count={item.count}
                                 key={index}
