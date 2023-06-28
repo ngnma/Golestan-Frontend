@@ -6,17 +6,17 @@ import Avatar from '@mui/material/Avatar';
 
 export default function StudentItem(props) {
     return (
-        <div style={{ width: '300px' }}>
-            <Box sx={{ flexGrow: 1 }} >
-                <Grid container spacing={2} >
-                    <Grid item xs={8} style={{ backgroundColor: "Silver" }}>
+        <Grid item sx={{ width: '400px', backgroundColor: "#B2CDFE", borderRadius: '10px' }} >
+            <Box >
+                <Grid container alignItems="center">
+                    <Grid item xs={8} >
                         <p>{props.name}</p>
                     </Grid>
-                    <Grid item xs={4} style={{ backgroundColor: "Silver" }}>
+                    <Grid item xs={4} >
                         <Avatar alt={props.name} src={props.image} />
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </Grid>
     )
 }
