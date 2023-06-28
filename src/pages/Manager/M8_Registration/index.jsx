@@ -1,14 +1,14 @@
 import { Grid, TextField, Button, Typography } from '@mui/material';
 import { React, useState, useEffect } from 'react';
 import Mainlayout from '../../../components/MainLayout';
-import './styles.scss';
+
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import DashboardLayout from '../../../components/DashboardLayout';
 import M5_CourseItem from '../../../components/Manager/M5_CourseCard';
 import { useNavigate } from 'react-router-dom';
 
-export default function M5_PreRegistration() {
+export default function M8_Registration() {
     //mock data
     const mock = [
         { name: "آمار و احتمال مهندسی", count: 12 },
@@ -33,13 +33,9 @@ export default function M5_PreRegistration() {
     const handleChange = (event, newAlignment) => {
         setAlignment(newAlignment);
         if (alignment === "true"){
-            
             preRegCourseList.sort((a, b) => a.count - b.count);
-            console.log(preRegCourseList)
         }else{
-           
             preRegCourseList.sort((b, a) => a.count - b.count);
-            console.log(preRegCourseList)
         }
     };
     
@@ -61,7 +57,7 @@ export default function M5_PreRegistration() {
                     </Grid>
                     <Grid item>
                         {/* text should be handled by redux */}
-                        <Typography>دروس پیش ثبت نامی پاییز?</Typography>
+                        <Typography>دروس ثبت نامی پاییز?</Typography>
                     </Grid>
                 </Grid>
                 <hr

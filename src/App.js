@@ -11,7 +11,7 @@ import M4_CoursesList from './pages/Manager/M4_CoursesList';
 import M5_PreRegistration from './pages/Manager/M5_PreRegistration/indes';
 import M6_AddCourse from './pages/Manager/M6_AddCourse';
 import M7_PreRegStudentList from './pages/Manager/M7_PreRegStudentList';
-import M8_Registration from './pages/Manager/M8_RegistrationList';
+import M8_Registration from './pages/Manager/M8_Registration';
 import M9_RegistrationList from './pages/Manager/M9_RegistrationList';
 import M10_StudentList from './pages/Manager/StudentsList';
 import M11_ProfessorList from './pages/Manager/M11_ProfessorList';
