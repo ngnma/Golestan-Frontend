@@ -5,7 +5,7 @@ import Mainlayout from '../../../components/MainLayout';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import DashboardLayout from '../../../components/DashboardLayout';
-import M5_CourseItem from '../../../components/Manager/M5_CourseCard';
+import M8_CourseItem from '../../../components/Manager/M8_CourseItem';
 import { useNavigate } from 'react-router-dom';
 
 export default function M8_Registration() {
@@ -94,7 +94,7 @@ export default function M8_Registration() {
                     </Grid>
                     <Grid item container justifyContent='center' direction="row-reverse">
                         {preRegCourseList.map((item, index) => (
-                            <M5_CourseItem
+                            <M8_CourseItem
                                 name={item.name}
                                 professor={item.professor}
                                 count={item.count}
