@@ -3,6 +3,7 @@ import Mainlayout from '../../../components/MainLayout';
 import { Grid, TextField, Typography } from '@mui/material';
 import S4_PreReg from '../../../components/Student/S4_PreReg'
 import DashboardLayout from '../../../components/DashboardLayout';
+import { useSelector } from 'react-redux';
 
 
 
@@ -21,8 +22,11 @@ export default function S4_PreRegCourseList() {
   ];
 
   const [mlist, setMlist] = useState([])
+  const termid = useSelector((state) => state.termid)
 
   useEffect(() => {
+    
+    console.log(termid)
     setMlist(mock)
   }, [])
 

@@ -3,11 +3,14 @@ import MainLayout from '../../../components/MainLayout';
 import { Button, Grid } from '@mui/material';
 import './style.scss'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function S3_TermInfo() {
     const navigate = useNavigate();
+    const termid = useSelector((state)=>state.termid)
 
     const handle1 = ()=>{
+        console.log(termid)
         navigate('/S4')
     }
     const handle2 = ()=>{
@@ -21,7 +24,7 @@ export default function S3_TermInfo() {
     }
 
     return (
-        <MainLayout text={"redux"} btnText={"مشاهده اطلاعات ترم"} btn={true}>
+        <MainLayout text={termid} btnText={"مشاهده اطلاعات ترم"} btn={true}>
             <Grid container justifyContent='center' direction="row" wrap='wrap' gap="20px">
                 <Grid item>
                     <Button className='s3_btn' variant='contained' onClick={handle1}>مشاهده لیست دروس ارایه شده برای پیش ثبت نام</Button>

@@ -3,6 +3,7 @@ import { React, useState, useEffect } from 'react'
 import Mainlayout from '../../../components/MainLayout';
 import { Grid, TextField, Typography } from '@mui/material';
 import DashboardLayout from '../../../components/DashboardLayout';
+import { useSelector } from 'react-redux';
 
 export default function S7_Registrations() {
   const mock = [
@@ -18,6 +19,7 @@ export default function S7_Registrations() {
   ];
 
   const [mlist, setMlist] = useState([])
+  const termid = useSelector((state) => state.termid)
 
   useEffect(() => {
     setMlist(mock)
@@ -55,7 +57,7 @@ export default function S7_Registrations() {
 
         <Grid container item justifyContent="flex-end">
           <TextField
-            placeholder="جستجو بر اساس نام درس"
+            placeholder=" جستجو بر اساس نام درس یا آیدی"
             style={{ width: "300px" }}
             inputProps={{ dir: "rtl" }}
           />

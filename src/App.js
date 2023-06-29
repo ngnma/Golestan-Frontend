@@ -30,6 +30,7 @@ import S4_PreRegCourseList from './pages/Student/S4_PreRegCoursesList';
 import S5_PreRegistration from './pages/Student/S5_PreRegistrations';
 import S6_RegCourseList from './pages/Student/S6_RegCoursesList';
 import S7_Registrations from './pages/Student/S7_Registrations';
+import S2_TermList from './pages/Student/S2_TermList';
 
 
 
@@ -42,20 +43,21 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />}></Route>
-            <Route path='/test' element={<Test/>}></Route>
-            <Route path='/M2' element={<M2_TermList/>}></Route>
-            <Route path='/M3' element={<M3_UpdateTerm/>}></Route>
-            <Route path='/M4' element={<M4_CoursesList/>}></Route>
-            <Route path='/M5' element={<M5_PreRegistration/>}></Route>
-            <Route path='/M6' element={<M6_AddCourse/>}></Route>
-            <Route path='/M7' element={<M7_PreRegStudentList/>}></Route>
-            <Route path='/M8' element={<M8_Registration/>}></Route>
+            <Route path='/test' element={<Test />}></Route>
+            <Route path='/M2' element={<M2_TermList />}></Route>
+            <Route path='/M3' element={<M3_UpdateTerm />}></Route>
+            <Route path='/M4' element={<M4_CoursesList />}></Route>
+            <Route path='/M5' element={<M5_PreRegistration />}></Route>
+            <Route path='/M6' element={<M6_AddCourse />}></Route>
+            <Route path='/M7' element={<M7_PreRegStudentList />}></Route>
+            <Route path='/M8' element={<M8_Registration />}></Route>
             <Route path="/M9" element={<M9_RegistrationList />}></Route>
             <Route path="/M10" element={<M10_StudentList />}></Route>
             <Route path="/M11" element={<M11_ProfessorList />}></Route>
 
             <Route path="/I5" element={<I5_NewStudent />}></Route>
 
+            <Route path="/S2" element={<S2_TermList />}></Route>
             <Route path="/S3" element={<S3_TermInfo />}></Route>
             <Route path="/S4" element={<S4_PreRegCourseList />}></Route>
             <Route path="/S5" element={<S5_PreRegistration />}></Route>

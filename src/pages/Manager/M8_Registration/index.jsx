@@ -25,7 +25,7 @@ export default function M8_Registration() {
     const [alignment, setAlignment] = useState('true');
     const [preRegCourseList, setPreRegCourseList] = useState([]);
     const navigate = useNavigate();
-    const termName = useSelector((state) => state.m3_termname);//redux
+    const termName = useSelector((state) => state.termname);//redux
 
     useEffect(() => {
         //get mock from back and remove mock data

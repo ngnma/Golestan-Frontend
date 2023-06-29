@@ -3,6 +3,7 @@ import { React, useState, useEffect } from 'react'
 import Mainlayout from '../../../components/MainLayout';
 import { Grid, TextField, Typography } from '@mui/material';
 import DashboardLayout from '../../../components/DashboardLayout';
+import { useSelector } from 'react-redux';
 
 export default function S5_PreRegistration() {
   const mock = [
@@ -18,6 +19,7 @@ export default function S5_PreRegistration() {
   ];
 
   const [mlist, setMlist] = useState([])
+  const termid = useSelector((state) => state.termid)
 
   useEffect(() => {
     setMlist(mock)

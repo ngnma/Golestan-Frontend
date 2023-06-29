@@ -13,8 +13,13 @@ const reducer = (state = initialState, action) => {
     case 'SAVETERMNAME':
       return {
         ...state,
-        m3_termname: action.payload,
+        termname: action.payload,
       };
+    case 'SAVETERMID':
+        return {
+          ...state,
+          termid: action.payload,
+        };
     case 'SAVECOURSEID':
       return {
         ...state,

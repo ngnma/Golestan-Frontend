@@ -3,6 +3,11 @@ export const setTermName = (value) => ({
     payload: value
 });
 
+export const setTermID = (value) => ({
+    type: 'SAVETERMID',
+    payload: value
+});
+
 export const setCourseId = (value) =>({
     type: 'SAVECOURSEID',
     payload: value

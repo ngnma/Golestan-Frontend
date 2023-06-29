@@ -10,7 +10,7 @@ import { Grid, Button } from '@mui/material';
 export default function M4_CoursesList() {
     const dispatch = useDispatch();//redux
     const navigate = useNavigate()
-    const termName = useSelector((state) => state.m3_termname);//redux
+    const termName = useSelector((state) => state.termname);//redux
     const goToM8 = () => {
         dispatch(action.setTermName(termName));//redux
         navigate('/M8')
