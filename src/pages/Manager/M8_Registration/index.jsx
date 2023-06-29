@@ -92,7 +92,7 @@ export default function M8_Registration() {
                         </Grid>
 
                         <Grid item>
-                            <TextField placeholder='جستجو بر اساس نام درس' style={{ width: "300px" }}></TextField></Grid>
+                            <TextField placeholder='جستجو بر اساس نام درس' style={{ width: "300px" }} inputProps={{ dir: "rtl" }}></TextField></Grid>
                     </Grid>
                     <Grid item container justifyContent='center' direction="row-reverse">
                         {preRegCourseList.map((item, index) => (

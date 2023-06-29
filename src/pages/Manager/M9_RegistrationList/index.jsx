@@ -65,7 +65,7 @@ export default function M9_Registration() {
             </Grid>
 
             <Grid item>
-              <TextField placeholder='جستجو بر اساس نام دانشجو' style={{ width: "300px" }}></TextField></Grid>
+              <TextField placeholder='جستجو بر اساس نام دانشجو' style={{ width: "300px" }} inputProps={{ dir: "rtl" }}></TextField></Grid>
           </Grid>
           <Grid item>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', justifyContent: 'center', marginTop: '7%' }}>

@@ -19,10 +19,19 @@ import M11_ProfessorList from './pages/Manager/M11_ProfessorList';
 //IT
 import I5_NewStudent from './pages/IT/I5_NewStudent'
 
+//Student
+import S3_TermInfo from './pages/Student/S3_TermInfo';
+
 
 //test
 import M2_CourseItem from './components/Manager/M2_CourseItem';
 import Test from './pages/test';
+import S4_PreRegCourseList from './pages/Student/S4_PreRegCoursesList';
+import S5_PreRegistration from './pages/Student/S5_PreRegistrations';
+import S6_RegCourseList from './pages/Student/S6_RegCoursesList';
+import S7_Registrations from './pages/Student/S7_Registrations';
+
+
 
 
 
@@ -46,6 +55,14 @@ function App() {
             <Route path="/M11" element={<M11_ProfessorList />}></Route>
 
             <Route path="/I5" element={<I5_NewStudent />}></Route>
+
+            <Route path="/S3" element={<S3_TermInfo />}></Route>
+            <Route path="/S4" element={<S4_PreRegCourseList />}></Route>
+            <Route path="/S5" element={<S5_PreRegistration />}></Route>
+            <Route path="/S6" element={<S6_RegCourseList />}></Route>
+            <Route path="/S7" element={<S7_Registrations />}></Route>
+
+
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
@@ -54,3 +71,5 @@ function App() {
 }
 
 export default App;
+
+

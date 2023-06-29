@@ -51,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "create-react-component-folder": "^0.3.7",
     "sass": "^1.63.6"
   }
 }
