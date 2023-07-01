@@ -31,6 +31,9 @@ import S5_PreRegistration from './pages/Student/S5_PreRegistrations';
 import S6_RegCourseList from './pages/Student/S6_RegCoursesList';
 import S7_Registrations from './pages/Student/S7_Registrations';
 import S2_TermList from './pages/Student/S2_TermList';
+import ErrorPage from './pages/404';
+import CreateMainCourse from './pages/IT/I7_CreateMainCourse';
+import MainCoursesList from './pages/IT/I6_MainCourseList';
 
 
 
@@ -56,6 +59,8 @@ function App() {
             <Route path="/M11" element={<M11_ProfessorList />}></Route>
 
             <Route path="/I5" element={<I5_NewStudent />}></Route>
+            <Route path="/I6" element={MainCoursesList}></Route>
+            <Route path="/I7" element={CreateMainCourse}></Route>
 
             <Route path="/S2" element={<S2_TermList />}></Route>
             <Route path="/S3" element={<S3_TermInfo />}></Route>
@@ -63,6 +68,11 @@ function App() {
             <Route path="/S5" element={<S5_PreRegistration />}></Route>
             <Route path="/S6" element={<S6_RegCourseList />}></Route>
             <Route path="/S7" element={<S7_Registrations />}></Route>
+
+            <Route path="/P3" element={<S2_TermList />}></Route>
+            <Route path="/P4" element={<S3_TermInfo />}></Route>
+            <Route path="/P4" element={<S4_PreRegCourseList />}></Route>
+            <Route path="*" component={ErrorPage} />
 
 
           </Routes>

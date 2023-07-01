@@ -8,29 +8,31 @@ import DashboardLayout from '../../../components/DashboardLayout';
 import M8_CourseItem from '../../../components/Manager/M8_CourseItem';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 export default function M8_Registration() {
     //mock data
-    const mock = [
-        { name: "آمار و احتمال مهندسی", count: 12 ,professor:"دکتر عبدوس"},
-        { name: "برنامه نویسی پیشرفته", count: 25 ,professor:"دکتر وحیدی"},
-        { name: "شبکه های کامپیوتری", count: 1 ,professor:"دکتر عباسپور"},
-        { name: "آمار و احتمال مهندسی", count: 13 ,professor:"دکتر عبدوس"},
-        { name: "برنامه نویسی پیشرفته", count: 22 ,professor:"دکتر وحیدی"},
-        { name: "شبکه های کامپیوتری", count: 13,professor:"دکتر عباسپور"},
-        { name: "آمار و احتمال مهندسی", count: 19 ,professor:"دکتر عبدوس"},
-        { name: "برنامه نویسی پیشرفته", count: 24 ,professor:"دکتر وحیدی"},
-        { name: "شبکه های کامپیوتری", count: 14 ,professor:"دکتر عباسپور"}
-    ];
+ 
     const [alignment, setAlignment] = useState('true');
     const [preRegCourseList, setPreRegCourseList] = useState([]);
-    const navigate = useNavigate();
     const termName = useSelector((state) => state.termname);//redux
 
+    const navigate = useNavigate();
     useEffect(() => {
-        //get mock from back and remove mock data
-        setPreRegCourseList(mock);
-    }, []);
+      axios.get(`http://localhost:8080/api/admin/Professors`,
+          {
+              headers: {
+                  Authorization: `Bearer ${sessionStorage.getItem("token")}`
+              }
+          }).then((response) => {
+          console.log(response.data)
+          setPreRegCourseList(response.data)
+      }).catch((err)=>{
+        alert(err)
+        navigate("/login");
+      })
+  
+  }, []);
 
     const handleRemoveItem = (index) => {
         const updatedList = [...preRegCourseList];
