@@ -18,8 +18,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { PropaneSharp } from '@mui/icons-material';
+import { Grid, Button } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -72,7 +73,8 @@ export default function SidebarIT(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [option, setOption] = React.useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [name, setName] = React.useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -82,14 +84,26 @@ export default function SidebarIT(props) {
     setOpen(false);
   };
 
+  const signout = () => {
+    navigate('/login');
+  }
+
+  React.useEffect(() => {
+    //get studentList2 from back and remove mock data
+    setName(sessionStorage.getItem("name"))
+  }, []);
+
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div"/>
-            
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div" />
+          <Grid container justifyContent="space-between" >
+            <Grid paddingLeft={"20px"} item sx={6}><Button variant="text" color="secondary" onClick={signout} >خروج</Button></Grid>
+            <Grid paddingRight={"20px"} item sx={6}>{name}</Grid>
+          </Grid>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -101,7 +115,7 @@ export default function SidebarIT(props) {
         </Toolbar>
       </AppBar>
       <Main open={open}>
-      {props.content}
+        {props.content}
       </Main>
       <Drawer
         sx={{
@@ -124,7 +138,7 @@ export default function SidebarIT(props) {
         <List>
           {['مشاهده لیست ترم ها'].map((text, index) => (
             <ListItem key={text} disablePadding>
-                <ListItemText primary={text} />
+              <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>

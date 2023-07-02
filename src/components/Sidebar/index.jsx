@@ -18,7 +18,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { PropaneSharp } from '@mui/icons-material';
 import { Grid, Button } from '@mui/material';
 
@@ -74,7 +74,7 @@ export default function Sidebar(props) {
   const [open, setOpen] = React.useState(false);
   const [option, setOption] = React.useState("");
   const navigate = useNavigate()
-  const [name, setName] =React.useState("");
+  const [name, setName] = React.useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -84,15 +84,15 @@ export default function Sidebar(props) {
     setOpen(false);
   };
 
-  const handleOptionSelected=(text)=>{
+  const handleOptionSelected = (text) => {
     setOption(text);
-    if(text==='مشاهده لیست دانشجویان'){
+    if (text === 'مشاهده لیست دانشجویان') {
       navigate('/M10');
     }
-    if(text==='مشاهده ی لیست اساتید'){
+    if (text === 'مشاهده ی لیست اساتید') {
       navigate('/M11');
     }
-    if(text==='مشاهده لیست ترم ها'){
+    if (text === 'مشاهده لیست ترم ها') {
       navigate('/M2');
     }
     console.log(text);
@@ -108,11 +108,11 @@ export default function Sidebar(props) {
       <AppBar position="fixed" open={open}>
 
         <Toolbar>
-          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div"/>
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div" />
           <Grid container justifyContent="space-between" >
-          <Grid paddingLeft={"20px"} item sx={6}><Button variant="text" color="secondary" >خروج</Button></Grid>
-          <Grid paddingRight={"20px"} item sx={6}>{name}</Grid>
-        </Grid>
+            <Grid paddingLeft={"20px"} item sx={6}><Button variant="text" color="secondary" >خروج</Button></Grid>
+            <Grid paddingRight={"20px"} item sx={6}>{name}</Grid>
+          </Grid>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -124,7 +124,7 @@ export default function Sidebar(props) {
         </Toolbar>
       </AppBar>
       <Main open={open}>
-      {props.content}
+        {props.content}
       </Main>
       <Drawer
         sx={{
@@ -147,7 +147,7 @@ export default function Sidebar(props) {
         <List>
           {['مشاهده لیست ترم ها', 'مشاهده لیست دانشجویان', 'مشاهده ی لیست اساتید'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton onClick={()=>handleOptionSelected(text)}>
+              <ListItemButton onClick={() => handleOptionSelected(text)}>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
