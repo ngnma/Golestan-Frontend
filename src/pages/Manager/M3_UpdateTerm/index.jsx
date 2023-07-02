@@ -15,7 +15,7 @@ import { useSelector } from 'react-redux';
 
 
 export default function M3_UpdateTerm(props) {
-  
+
   const professorListMock = [
     { value: 10, name: 'Vahidi' },
     { value: 20, name: 'Rahmati' }
@@ -25,7 +25,9 @@ export default function M3_UpdateTerm(props) {
     { value: 20, name: 'Zahra' }
   ];
   const [professor, setProfrssor] = React.useState('');
+  const [professors, setProfrssors] = React.useState([]);
   const [student, setStudent] = React.useState('');
+  const [students, setStudents] = React.useState([]);
   const termName = useSelector((state) => state.termname);//redux
 
   const handleChangeProfessor = (event) => {
@@ -36,9 +38,32 @@ export default function M3_UpdateTerm(props) {
     setStudent(event.target.value);
   };
 
-  const handleSubmit = ()=>{
+  const handleSubmit = () => {
     //API Call post(professor,student,name)
   }
+
+  const [formData, setformData] = React.useState({
+    term_name: "",
+    student_list: [],
+    pfofessors_list: [],
+  });
+  //functions
+  const handleAddProfessor = () => {
+    setProfrssors((prevProfessors) => [...prevProfessors, professor]);
+    setProfrssor("");
+    setformData((prevFormData) => ({
+      ...prevFormData,
+      pfofessors_list: professors,
+    }));
+  };
+  const handleAddStudent = () => {
+    setStudents((prevStudents) => [...prevStudents, student]);
+    setStudent("");
+    setformData((prevFormData) => ({
+      ...prevFormData,
+      student_list: students,
+    }));
+  };
 
 
   const { index } = props;
@@ -86,11 +111,11 @@ export default function M3_UpdateTerm(props) {
                   <Button variant="contained" className='M3_btn'>آپلوداکسل</Button>
                 </Grid>
                 <Grid item flexGrow={1}>
-                  <Button variant="contained" className='M3_btn'>افزودن</Button>
+                  <Button variant="contained" className='M3_btn' onClick={handleAddProfessor}>افزودن</Button>
                 </Grid>
                 <Grid item flexGrow={5}>
 
-                <Box sx={{ minWidth: 120 }}>
+                  <Box sx={{ minWidth: 120 }}>
                     <FormControl fullWidth>
                       <Select value={professor} onChange={handleChangeProfessor}>
                         {professorListMock.map((item) => (
@@ -115,7 +140,7 @@ export default function M3_UpdateTerm(props) {
                   <Button variant="contained" className='M3_btn'>آپلوداکسل</Button>
                 </Grid>
                 <Grid item flexGrow={1}>
-                  <Button variant="contained" className='M3_btn'>افزودن</Button>
+                  <Button variant="contained" className='M3_btn' onClick={handleAddStudent}>افزودن</Button>
                 </Grid>
                 <Grid item flexGrow={5}>
 

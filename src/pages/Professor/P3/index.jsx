@@ -79,6 +79,7 @@ export default function P3() {
                 <Grid item container direction="column" >
                     <Grid item container justifyContent="space-between"  >
                         <Grid item/>
+
                         <Grid item>
                             <ToggleButtonGroup
                                 color="primary"
@@ -89,6 +90,7 @@ export default function P3() {
                                 <ToggleButton value="false">کمترین تعداد ثبت نامی</ToggleButton>
                             </ToggleButtonGroup>
                         </Grid>
+
                         <Grid item>
                             <TextField placeholder='جستجو بر اساس نام درس' style={{ width: "300px" }} inputProps={{ dir: "rtl" }}></TextField></Grid>
                     </Grid>

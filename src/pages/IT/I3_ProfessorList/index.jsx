@@ -96,12 +96,10 @@ export default function I3_ManagerList() {
   //variables
   const courseId = useSelector((state) => state.m7_courseid); //redux
   const courseFullName = useSelector((state) => state.m7_coursefullname); //redux
-  const [totalList, setTotalList] = useState(ProfessorList);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [searchKey ,setSearchKey] =useState("");
-  const [selectedList,setSelectedList]=useState([]);
+
   const handleChangeInfo = (index) => {
     const item = ProfessorList[index];
     dispatch(
@@ -119,35 +117,22 @@ export default function I3_ManagerList() {
     );
     navigate("/I9");
   };
-  const handleAddProfessor =()=>{
+  const handleAddProfessor = () => {
     dispatch(action.setI3TOI9Add(true));
     navigate("/I9");
   }
 
+  const handleRemoveItem = (index) => {
+    const removedItem = selectedList[index];
+    const updatedSelectedList = selectedList.filter((_, i) => i !== index);
+    setSelectedList(updatedSelectedList);
+  };
 
- //functions
-//   const handleRemoveItem = (index) => {
-//     const updatedList = [...ProfessorList];
-//     updatedList.splice(index, 1);
-//     setSelectedList(updatedList);
-// }
-const handleRemoveItem = (index) => {
-  const removedItem = selectedList[index];
-  const updatedSelectedList = selectedList.filter((_, i) => i !== index);
-  setSelectedList(updatedSelectedList);
+  //live search
+  const [searchKey, setSearchKey] = useState("");
+  const [selectedList, setSelectedList] = useState([]);
 
-  const updatedTotalList = totalList.filter((item) => item.id !== removedItem.id);
-  setTotalList(updatedTotalList);
-
-  setSearchKey(""); // Reset the search key
-
-  // You can also update the original ProfessorList if needed
-  // dispatch(action.updateProfessorList(updatedTotalList));
-};
-
-
-
-  const handleSearch =(event)=>{
+  const handleSearch = (event) => {
     setSearchKey(event.target.value)
   }
   const searchProfessors = () => {
@@ -157,7 +142,6 @@ const handleRemoveItem = (index) => {
   };
   useEffect(() => {
     setSelectedList(ProfessorList);
-    setTotalList(ProfessorList);
   }, []);
   useEffect(() => {
     setSelectedList(searchProfessors());
@@ -168,13 +152,13 @@ const handleRemoveItem = (index) => {
   const processExcelData = (workbook) => {
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
     const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-  
+
     // Extract column names from the first row
     const columnNames = jsonData[0];
-  
+
     // Remove the first row (column names) from the data
     const rows = jsonData.slice(1);
-  
+
     // Convert the data to an array of objects
     const convertedData = rows.map((row) => {
       const obj = {};
@@ -183,10 +167,10 @@ const handleRemoveItem = (index) => {
       });
       return obj;
     });
-  
+
     return convertedData;
   };
-  
+
 
   const handleFileUpload = () => {
     const fileInput = document.createElement('input');
@@ -195,11 +179,11 @@ const handleRemoveItem = (index) => {
     fileInput.addEventListener('change', handleFileChange);
     fileInput.click();
   };
-  
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
-  
+
     reader.onload = (e) => {
       const data = new Uint8Array(e.target.result);
       const workbook = XLSX.read(data, { type: 'array' });
@@ -209,11 +193,11 @@ const handleRemoveItem = (index) => {
       console.log(convertedData);
       setSelectedList(convertedData);
     };
-  
+
     reader.readAsArrayBuffer(file);
   };
 
-  
+
   return (
     <DashboardLayout>
       <Grid container>
@@ -245,7 +229,7 @@ const handleRemoveItem = (index) => {
                 style={{ width: "200px", height: "50px" }}
                 onClick={handleFileUpload}
               >
-              آپلود اکسل
+                آپلود اکسل
               </Button>
             </Grid>
 
