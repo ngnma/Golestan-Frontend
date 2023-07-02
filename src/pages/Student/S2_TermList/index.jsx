@@ -3,6 +3,7 @@ import S2_TermCard from "../../../components/Student/S2_TermCard";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Mainlayout from "../../../components/MainLayout";
+import axios from "axios";
 
 export default function S2_TermList() {
 
@@ -29,23 +30,31 @@ export default function S2_TermList() {
   };
 
   useEffect(() => {
-    //get studentList2 from back and remove mock data
+    axios.get("http://localhost:8080/api/terms",    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      setTermList(response.data)
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
     setTermList(termList2);
   }, []);
-  useEffect(() => {
-    //call api delete_course
-  }, [termList]);
+
+  // useEffect(() => {
+  //   //call api delete_course
+  // }, [termList]);
 
   const handleAddCourse = () => {
     navigate("/M6");
   };
  
   return (
-    <Mainlayout btn={true} text={"مشاهده لیست ترم ها"} btnText={"افزودن ترم +"} functionality={handleAddCourse}>
+    <Mainlayout text={"مشاهده لیست ترم ها"}>
       <Grid container justifyContent='center'>
         {termList.map((item, index) => (
           <S2_TermCard
-            name={item.name}
+            name={item.id}
             key={index}
             removeItem={handleRemoveItem}
             termid={item.id}

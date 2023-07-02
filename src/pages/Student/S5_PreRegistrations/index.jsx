@@ -4,7 +4,7 @@ import Mainlayout from '../../../components/MainLayout';
 import { Grid, TextField, Typography } from '@mui/material';
 import DashboardLayout from '../../../components/DashboardLayout';
 import { useSelector } from 'react-redux';
-
+import axios from "axios";
 export default function S5_PreRegistration() {
   const mock = [
     { name: "آمار و احتمال مهندسی", count: 12, professor: "دکتر عبدوس" },
@@ -22,10 +22,27 @@ export default function S5_PreRegistration() {
   const termid = useSelector((state) => state.termid)
 
   useEffect(() => {
-    setMlist(mock)
+    axios.get(`http://localhost:8080/api/term/${termid}/preregistrations`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      setMlist(response.data[0].semester_courses)
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
+    //setMlist(mock)
   }, [])
 
-  const handleRemoveItem = (index) => {
+  const handleRemoveItem = (index,item) => {
+    axios.delete(`http://localhost:8080/api/course/preregister/${termid}`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      //setTermList(response.data)
+      setMlist(response.data[0].semester_courses)
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
     const updatedList = [...mlist];
     updatedList.splice(index, 1);
     setMlist(updatedList);
@@ -65,11 +82,12 @@ export default function S5_PreRegistration() {
         <Grid item container justifyContent="center" direction="row-reverse">
           {mlist.map((item, index) => (
             <S5_Card
-              name={item.name}
-              professor={item.professor}
-              courseid={item.count} // should be id later. now just for testing
+              // name={item.name}
+              // professor={item.professor}
+              // courseid={item.count} // should be id later. now just for testing
+              name={item}
               key={index}
-              removeItem={handleRemoveItem}
+              removeItem={()=>handleRemoveItem(item)}
             />
           ))}
         </Grid>

@@ -4,6 +4,7 @@ import { Grid, TextField, Typography } from '@mui/material';
 import S6_Card from '../../../components/Student/S6_Card'
 import DashboardLayout from '../../../components/DashboardLayout';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 export default function S6_RegCourseList() {
   const mock = [
@@ -22,10 +23,28 @@ export default function S6_RegCourseList() {
   const termid = useSelector((state) => state.termid)
 
   useEffect(() => {
-    setMlist(mock)
+    
+    axios.get(`http://localhost:8080/api/term/${termid}/registration_courses`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      console.log(response);
+      setMlist(response.data.prcs)
+    }, (error) => {
+      console.log(error);
+    });
+    // setMlist(mock)
   }, [])
 
-  const handleRemoveItem = (index) => {
+  const handleRemoveItem = (index,item) => {
+
+    axios.post(`http://localhost:8080/api/course/register/${item}`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
+
     const updatedList = [...mlist];
     updatedList.splice(index, 1);
     setMlist(updatedList);
@@ -65,11 +84,12 @@ export default function S6_RegCourseList() {
         <Grid item container justifyContent="center" direction="row-reverse">
           {mlist.map((item, index) => (
             <S6_Card
-              name={item.name}
-              professor={item.professor}
-              courseid={item.count} // should be id later. now just for testing
+              // name={item.name}
+              // professor={item.professor}
+              // courseid={item.count} // should be id later. now just for testing
+              name={item}
               key={index}
-              removeItem={handleRemoveItem}
+              removeItem={()=>handleRemoveItem(item)}
             />
           ))}
         </Grid>

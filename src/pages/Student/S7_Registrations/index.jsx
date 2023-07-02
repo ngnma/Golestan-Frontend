@@ -4,6 +4,7 @@ import Mainlayout from '../../../components/MainLayout';
 import { Grid, TextField, Typography } from '@mui/material';
 import DashboardLayout from '../../../components/DashboardLayout';
 import { useSelector } from 'react-redux';
+import axios from "axios";
 
 export default function S7_Registrations() {
   const mock = [
@@ -22,10 +23,28 @@ export default function S7_Registrations() {
   const termid = useSelector((state) => state.termid)
 
   useEffect(() => {
+    axios.get(`http://localhost:8080/api/term/${termid}/registrations`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      // setMlist(response.data[0].semester_courses)
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
     setMlist(mock)
   }, [])
 
-  const handleRemoveItem = (index) => {
+  const handleRemoveItem = (index,item) => {
+    axios.delete(`http://localhost:8080/api/course/register/${termid}`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      //setTermList(response.data)
+      setMlist(response.data[0].semester_courses)
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
+
     const updatedList = [...mlist];
     updatedList.splice(index, 1);
     setMlist(updatedList);
@@ -69,7 +88,7 @@ export default function S7_Registrations() {
               professor={item.professor}
               courseid={item.count} // should be id later. now just for testing
               key={index}
-              removeItem={handleRemoveItem}
+              removeItem={()=>handleRemoveItem(item)}
             />
           ))}
         </Grid>

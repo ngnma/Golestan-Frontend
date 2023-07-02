@@ -4,9 +4,10 @@ import { Grid, TextField, Typography } from '@mui/material';
 import S4_PreReg from '../../../components/Student/S4_PreReg'
 import DashboardLayout from '../../../components/DashboardLayout';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 
-
+// /term/{id}/preregistration_courses
 
 export default function S4_PreRegCourseList() {
   const mock = [
@@ -25,12 +26,25 @@ export default function S4_PreRegCourseList() {
   const termid = useSelector((state) => state.termid)
 
   useEffect(() => {
-    
-    console.log(termid)
-    setMlist(mock)
+    axios.get(`http://localhost:8080/api/term/${termid}/preregistration_courses`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      setMlist(response.data.prcs)
+    }, (error) => {
+      console.log(error);
+    });
+    // setMlist(mock)
   }, [])
 
-  const handleRemoveItem = (index) => {
+  const handleRemoveItem = (item,index) => {
+    axios.post(`http://localhost:8080/api/course/preregister/${item}`,    {
+      headers: {Authorization : `Bearer ${sessionStorage.getItem("token")}`
+    }}).then((response) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
+
     const updatedList = [...mlist];
     updatedList.splice(index, 1);
     setMlist(updatedList);
@@ -70,11 +84,12 @@ export default function S4_PreRegCourseList() {
         <Grid item container justifyContent="center" direction="row-reverse">
           {mlist.map((item, index) => (
             <S4_PreReg
-              name={item.name}
-              professor={item.professor}
-              courseid={item.count} // should be id later. now just for testing
+              name={item}
+              // name={item.name}
+              // professor={item.professor}
+              // courseid={item.count} // should be id later. now just for testing
               key={index}
-              removeItem={handleRemoveItem}
+              removeItem={()=>handleRemoveItem(item)}
             />
           ))}
         </Grid>
