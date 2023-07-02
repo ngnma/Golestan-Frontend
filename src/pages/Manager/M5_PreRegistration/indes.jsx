@@ -1,3 +1,5 @@
+
+
 import { Grid, TextField, Button, Typography } from '@mui/material';
 import { React, useState, useEffect } from 'react';
 import Mainlayout from '../../../components/MainLayout';
@@ -8,8 +10,43 @@ import DashboardLayout from '../../../components/DashboardLayout';
 import M5_CourseItem from '../../../components/Manager/M5_CourseCard';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { writeFile } from 'xlsx';
+import * as XLSX from 'xlsx';
 
 export default function M5_PreRegistration() {
+    //excel export 
+    function exportToExcel(data) {
+        // Create a new workbook
+        const workbook = XLSX.utils.book_new();
+      
+        // Convert data to a worksheet
+        const worksheet = XLSX.utils.json_to_sheet(data);
+      
+        // Add the worksheet to the workbook
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+      
+        // Convert the workbook to a binary Excel file
+        const excelFile = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
+      
+        // Download the file
+        const buffer = new ArrayBuffer(excelFile.length);
+        const view = new Uint8Array(buffer);
+        for (let i = 0; i < excelFile.length; i++) {
+          view[i] = excelFile.charCodeAt(i) & 0xFF;
+        }
+        const blob = new Blob([buffer], { type: 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'data.xlsx';
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+
+      const downloadExcel =()=>{
+        exportToExcel(mock);
+      }
+      
     //mock data
     const mock = [
         { id:1, name: "آمار و احتمال مهندسی", count: 12 ,professor:"دکتر عبدوس"},
@@ -79,7 +116,7 @@ export default function M5_PreRegistration() {
 
                 <Grid item container direction="column" >
                     <Grid item container justifyContent="space-between"  >
-                        <Grid item><Button variant='contained' style={{ width: "200px", height: "50px" }}>دانلود اکسل</Button></Grid>
+                        <Grid item><Button variant='contained' style={{ width: "200px", height: "50px" }} onClick={downloadExcel}>دانلود اکسل</Button></Grid>
 
                         <Grid item>
                             <ToggleButtonGroup
@@ -112,4 +149,6 @@ export default function M5_PreRegistration() {
         </DashboardLayout>
     );
 }
+
+
 
