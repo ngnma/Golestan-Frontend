@@ -4,8 +4,6 @@ import profile from '../../../assets/profile18.png';
 import DashboardLayout from '../../../components/DashboardLayout';
 import Divider from '@mui/material/Divider';
 import { Grid, Typography } from "@mui/material";
-import axios from 'axios';
-import { useNavigate } from "react-router-dom";
 
 export default function M11_ProfessorList() {
   //mock data
@@ -21,22 +19,10 @@ export default function M11_ProfessorList() {
     { name: 'negin', image: profile }
   ];
   const [professorList, setProfessorList] = useState([]);
-  const navigate = useNavigate();
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/admin/Professors`,
-        {
-            headers: {
-                Authorization: `Bearer ${sessionStorage.getItem("token")}`
-            }
-        }).then((response) => {
-        console.log(response.data)
-        setProfessorList(response.data)
-    }).catch((err)=>{
-      alert(err)
-      navigate("/login");
-    })
-
-}, []);
+    //get studentList2 from back and remove mock data
+    setProfessorList(mock_list);
+  }, []);
   return (
     <DashboardLayout>
       <Grid container>
