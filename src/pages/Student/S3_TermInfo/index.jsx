@@ -5,9 +5,16 @@ import './style.scss'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+
 export default function S3_TermInfo() {
     const navigate = useNavigate();
     const termid = useSelector((state)=>state.termid)
+
+        
+    React.useEffect(() => {
+        // dispatch(action.setTermName(termName));//redux
+        console.log(termid)
+    }, []);
 
     const handle1 = ()=>{
         console.log(termid)

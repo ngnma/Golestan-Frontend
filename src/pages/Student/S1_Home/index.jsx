@@ -5,11 +5,21 @@ import { Grid, Typography } from "@mui/material";
 import Mainlayout from "../../../components/Student/MainLayout";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import * as action from "../../../action"
 
 export default function S1_Home() {
-    const lastTerm = useSelector((state) => state.lastterm);
-    const termid = useSelector((state) => state.termid);
-    const lastCourse = useSelector((state) => state.lastcourse);
+    // const dispatch = useDispatch();//redux
+    // const lastTerm = useSelector((state) => state.lastterm);
+    // const termid = useSelector((state) => state.termid);
+    // const lastCourse = useSelector((state) => state.lastcourse);
+    // const termName = useSelector((state) => state.termname);//redux
+    const termid = useSelector((state)=>state.termid)
+    
+    useEffect(() => {
+        // dispatch(action.setTermName(termName));//redux
+        console.log(termid)
+    }, []);
 
     return (
         <Mainlayout text={"خانه"}>
@@ -28,7 +38,7 @@ export default function S1_Home() {
                         <Typography>اخرین درس مشاهده شده</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography>{lastCourse}</Typography>
+                        <Typography>{termid}</Typography>
                     </Grid>
                 </Grid>
 
