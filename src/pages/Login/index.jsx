@@ -46,6 +46,10 @@ function Login() {
                 navigate("/S2")
               }else if (currentUser.type==="educationalManager"){
                 navigate("/M2")
+              } else if (currentUser.type==="admin"){
+                navigate("/I2")
+              }else{
+                navigate("/P2")
               }
             }
         };

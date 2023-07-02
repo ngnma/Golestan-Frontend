@@ -42,6 +42,10 @@ import ErrorPage from './pages/404';
 // import CreateMainCourse from './pages/IT/I7_CreateMainCourse';
 // import MainCoursesList from './pages/IT/I6_MainCourseList';
 
+import P2_TermList from './pages/Professor/P2';
+import P3 from './pages/Professor/P3';
+import P4 from './pages/Professor/P4';
+
 
 
 
@@ -76,10 +80,11 @@ function App() {
             <Route path="/S6" element={<S6_RegCourseList />}></Route>
             <Route path="/S7" element={<S7_Registrations />}></Route>
 
-            <Route path="/P3" element={<S2_TermList />}></Route>
-            <Route path="/P4" element={<S3_TermInfo />}></Route>
-            <Route path="/P4" element={<S4_PreRegCourseList />}></Route>
+            <Route path="/P2" element={<P2_TermList />}></Route>
+            <Route path="/P3" element={<P3 />}></Route>
+            <Route path="/P4" element={<P4 />}></Route>
             <Route path="*" component={ErrorPage} />
+
 
 
             <Route path="/I2" element={<I2_StudentList />}></Route>
