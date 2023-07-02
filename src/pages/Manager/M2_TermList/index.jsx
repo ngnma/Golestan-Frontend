@@ -15,13 +15,6 @@ export default function M2_TermList() {
 
   //mock data
   const termList2 = [
-    // { name: "1" },
-    // { name: "7" },
-    // { name: "6" },
-    // { name: "5" },
-    // { name: "4" },
-    // { name: "3" },
-    // { name: "2" },
     { name: 'ترم پاییز ۱۴۰۱' },
     { name: 'ترم پاییز ۱۴۰۱' },
     { name: 'ترم پاییز ۱۴۰۱' },
@@ -35,11 +28,7 @@ export default function M2_TermList() {
   const [termList, setTermList] = useState([]);
   const navigate = useNavigate();
 
-  const handleRemoveItem = (index) => {
-    const updatedList = [...termList];
-    updatedList.splice(index, 1);
-    setTermList(updatedList);
-  };
+
   useEffect(() => {
     axios.get(`http://localhost:8080/api/terms`, 
     {
@@ -89,7 +78,7 @@ const onDelete = (id) => {
     <Mainlayout btn={true} text={"مشاهده لیست ترم ها"} btnText={"افزودن ترم +"} functionality={handleAddCourse}>
       <Grid container justifyContent='center'>
         {termList.map((item, index) => (
-          <M2_CourseItem name={item.term_id} key={index} removeItem={handleRemoveItem}/>
+          <M2_CourseItem name={item.id} key={index} removeItem={()=>onDelete(item.id)}/>
         ))}
       </Grid>
     </Mainlayout>
