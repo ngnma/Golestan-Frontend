@@ -70,6 +70,16 @@ const reducer = (state = initialState, action) => {
         I4TOI8ERNTRYYEAR: action.payload.entry_year,
         I4TOI8NATIONALCODE: action.payload.national_code
       }
+    case 'LASTTERM':
+      return {
+        ...state,
+        lastterm: action.payload,
+      };
+    case 'LASTCOURS':
+      return {
+        ...state,
+        lastcourse: action.payload,
+      };
     default:
       return state;
   }

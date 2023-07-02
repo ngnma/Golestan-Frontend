@@ -32,3 +32,13 @@ export const setI4TOI8Add =(flag,first_name,last_name,id,national_code,faculty,m
     type: 'I4TOI8NEW',
     payload :{flag,first_name,last_name,id,national_code,faculty,major,level,entry_year}
 });
+
+export const setLastCourse = (value) =>({
+    type: 'LASTCOURSE',
+    payload: value
+});
+
+export const setLastTerm = (value) =>({
+    type: 'LASTTERM',
+    payload: value
+});

@@ -43,7 +43,7 @@ function Login() {
               sessionStorage.setItem("name",currentUser.name);
               sessionStorage.setItem("token",res.token);
               if(currentUser.type==="student"){
-                navigate("/S2")
+                navigate("/S1")
               }
             }
         };

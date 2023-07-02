@@ -27,6 +27,7 @@ import I10_NewFaculty from './pages/IT/I10_NewFaculty';
 
 //Student
 import S3_TermInfo from './pages/Student/S3_TermInfo';
+import S1_Home from './pages/Student/S1_Home';
 
 
 //test
@@ -67,6 +68,7 @@ function App() {
             {/* <Route path="/I6" element={MainCoursesList}></Route>
             <Route path="/I7" element={CreateMainCourse}></Route> */}
 
+            <Route path="/S1" element={<S1_Home />}></Route>
             <Route path="/S2" element={<S2_TermList />}></Route>
             <Route path="/S3" element={<S3_TermInfo />}></Route>
             <Route path="/S4" element={<S4_PreRegCourseList />}></Route>

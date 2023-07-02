@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Mainlayout from "../../../components/Student/MainLayout";
 import axios from "axios";
+import { useDispatch } from 'react-redux';
 
 export default function S2_TermList() {
 
@@ -22,6 +23,7 @@ export default function S2_TermList() {
   ];
   const [termList, setTermList] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleRemoveItem = (index) => {
     const updatedList = [...termList];

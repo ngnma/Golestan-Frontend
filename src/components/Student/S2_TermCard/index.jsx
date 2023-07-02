@@ -16,6 +16,7 @@ export default function S2_TermCard(props) {
 
   const handleCourseShow = () => {
     dispatch(action.setTermID(props.termid));//redux
+    dispatch(action.setLastTerm(props.termid));//redux
     navigate('/S3')
   }
 
