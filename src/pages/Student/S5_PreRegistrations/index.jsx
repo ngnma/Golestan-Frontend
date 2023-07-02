@@ -2,7 +2,7 @@ import S5_Card from "../../../components/Student/S5_Card";
 import { React, useState, useEffect } from 'react'
 import Mainlayout from '../../../components/MainLayout';
 import { Grid, TextField, Typography } from '@mui/material';
-import DashboardLayout from '../../../components/DashboardLayout';
+import DashboardLayout from '../../../components/Student/DashboardLayout';
 import { useSelector } from 'react-redux';
 import axios from "axios";
 export default function S5_PreRegistration() {

@@ -40,6 +40,7 @@ function Login() {
               }
               console.log(currentUser)
               console.log(res)
+              sessionStorage.setItem("name",currentUser.name);
               sessionStorage.setItem("token",res.token);
               if(currentUser.type==="student"){
                 navigate("/S2")

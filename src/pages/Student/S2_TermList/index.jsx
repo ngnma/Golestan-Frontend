@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import S2_TermCard from "../../../components/Student/S2_TermCard";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
-import Mainlayout from "../../../components/MainLayout";
+import Mainlayout from "../../../components/Student/MainLayout";
 import axios from "axios";
 
 export default function S2_TermList() {

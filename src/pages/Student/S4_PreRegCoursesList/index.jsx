@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from 'react'
-import Mainlayout from '../../../components/MainLayout';
+
 import { Grid, TextField, Typography } from '@mui/material';
 import S4_PreReg from '../../../components/Student/S4_PreReg'
-import DashboardLayout from '../../../components/DashboardLayout';
+import DashboardLayout from '../../../components/Student/DashboardLayout';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 

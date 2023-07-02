@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react'
 import Mainlayout from '../../../components/MainLayout';
 import { Grid, TextField, Typography } from '@mui/material';
 import S6_Card from '../../../components/Student/S6_Card'
-import DashboardLayout from '../../../components/DashboardLayout';
+import DashboardLayout from '../../../components/Student/DashboardLayout';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 

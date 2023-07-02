@@ -20,7 +20,6 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import {useNavigate} from "react-router-dom"
 import { PropaneSharp } from '@mui/icons-material';
-import { Grid, Button } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -69,12 +68,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-start',
 }));
 
-export default function Sidebar(props) {
+export default function SidebarIT(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [option, setOption] = React.useState("");
   const navigate = useNavigate()
-  const [name, setName] =React.useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -84,35 +82,14 @@ export default function Sidebar(props) {
     setOpen(false);
   };
 
-  const handleOptionSelected=(text)=>{
-    setOption(text);
-    if(text==='مشاهده لیست دانشجویان'){
-      navigate('/M10');
-    }
-    if(text==='مشاهده ی لیست اساتید'){
-      navigate('/M11');
-    }
-    if(text==='مشاهده لیست ترم ها'){
-      navigate('/M2');
-    }
-    console.log(text);
-  }
-  React.useEffect(() => {
-    //get studentList2 from back and remove mock data
-    setName(sessionStorage.getItem("name"))
-  }, []);
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div"/>
-          <Grid container justifyContent="space-between" >
-          <Grid paddingLeft={"20px"} item sx={6}><Button variant="text" color="secondary" >خروج</Button></Grid>
-          <Grid paddingRight={"20px"} item sx={6}>{name}</Grid>
-        </Grid>
+            
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -145,11 +122,9 @@ export default function Sidebar(props) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['مشاهده لیست ترم ها', 'مشاهده لیست دانشجویان', 'مشاهده ی لیست اساتید'].map((text, index) => (
+          {['مشاهده لیست ترم ها'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton onClick={()=>handleOptionSelected(text)}>
                 <ListItemText primary={text} />
-              </ListItemButton>
             </ListItem>
           ))}
         </List>

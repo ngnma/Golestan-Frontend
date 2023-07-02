@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from '../../../components/MainLayout';
+import Mainlayout from "../../../components/Student/MainLayout";
 import { Button, Grid } from '@mui/material';
 import './style.scss'
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +24,7 @@ export default function S3_TermInfo() {
     }
 
     return (
-        <MainLayout text={termid} btnText={"مشاهده اطلاعات ترم"} btn={true}>
+        <Mainlayout text={termid} btnText={"مشاهده اطلاعات ترم"} btn={true}>
             <Grid container justifyContent='center' direction="row" wrap='wrap' gap="20px">
                 <Grid item>
                     <Button className='s3_btn' variant='contained' onClick={handle1}>مشاهده لیست دروس ارایه شده برای پیش ثبت نام</Button>
@@ -40,7 +40,7 @@ export default function S3_TermInfo() {
                 </Grid>
             </Grid>
 
-        </MainLayout>
+        </Mainlayout>
     )
 }
 
