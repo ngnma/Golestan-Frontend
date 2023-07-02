@@ -101,7 +101,9 @@ export default function Sidebar(props) {
     //get studentList2 from back and remove mock data
     setName(sessionStorage.getItem("name"))
   }, []);
-
+  const signout = () => {
+    navigate('/login');
+  }
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -110,7 +112,7 @@ export default function Sidebar(props) {
         <Toolbar>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }} component="div" />
           <Grid container justifyContent="space-between" >
-            <Grid paddingLeft={"20px"} item sx={6}><Button variant="text" color="secondary" >خروج</Button></Grid>
+            <Grid paddingLeft={"20px"} item sx={6}><Button variant="text" color="secondary" onClick={signout}>خروج</Button></Grid>
             <Grid paddingRight={"20px"} item sx={6}>{name}</Grid>
           </Grid>
           <IconButton

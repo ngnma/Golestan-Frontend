@@ -16,13 +16,7 @@ export default function M2_TermList() {
 
   //mock data
   const termList2 = [
-    // { name: "1" },
-    // { name: "7" },
-    // { name: "6" },
-    // { name: "5" },
-    // { name: "4" },
-    // { name: "3" },
-    // { name: "2" },
+
     { name: 'ترم پاییز ۱۴۰۱' },
     { name: 'ترم پاییز ۱۴۰۱' },
     { name: 'ترم پاییز ۱۴۰۱' },
