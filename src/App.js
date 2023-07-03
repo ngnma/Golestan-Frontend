@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Theme from "./Theme/ThemeGenerator";
-import { ThemeProvider } from '@mui/material/styles';
+
 
 import M2_TermList from './pages/Manager/M2_TermList';
 import M3_UpdateTerm from './pages/Manager/M3_UpdateTerm';
@@ -49,11 +49,29 @@ import P4 from './pages/Professor/P4';
 
 
 
+import * as React from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
+
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'light' : 'dark',
+        },
+      }),
+    [prefersDarkMode],
+  ); 
+
   return (
     <div className="App">
       <ThemeProvider theme={Theme}>
+      {/* <ThemeProvider theme={theme}> */}
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />}></Route>
