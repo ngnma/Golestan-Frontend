@@ -1,13 +1,16 @@
-import { React, useEffect, useState } from 'react';
-import StudentItem from '../../../components/Manager/StudentItem';
-import profile from '../../../assets/profile18.png';
+import { useSelector } from 'react-redux';
+import { React, useState, useEffect } from 'react';
+import { TextField, Typography, Button, Grid, Box, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import DashboardLayout from '../../../components/DashboardLayout';
-import Divider from '@mui/material/Divider';
-import { Grid, Typography } from "@mui/material";
+import profile from '../../../assets/profile18.png';
+import M9_StudentCard from '../../../components/Manager/M9_StudenrCard';
 
-export default function M9_RegistrationList() {
+
+export default function M9_Registration() {
+  const courseId = useSelector((state) => state.m7_courseid);//redux
+  const courseFullName = useSelector((state) => state.m7_coursefullname);//redux
   //mock data
-  const mock_list = [
+  const studentList2 = [
     { name: 'negin', image: profile },
     { name: 'negin', image: profile },
     { name: 'negin', image: profile },
@@ -18,10 +21,10 @@ export default function M9_RegistrationList() {
     { name: 'negin', image: profile },
     { name: 'negin', image: profile }
   ];
-  const [professorList, setProfessorList] = useState([]);
+  const [studentList, setStudentList] = useState([]);
   useEffect(() => {
     //get studentList2 from back and remove mock data
-    setProfessorList(mock_list);
+    setStudentList(studentList2);
   }, []);
   return (
     <DashboardLayout>
@@ -32,9 +35,9 @@ export default function M9_RegistrationList() {
           justifyContent="space-between"
           alignContent="center"
         >
-          <Grid item/>
+          <Grid />
           <Grid item>
-            <Typography>افزودن درس جدید</Typography>
+            <Typography>لیست ثبت نام های درس  {courseFullName}</Typography>
           </Grid>
         </Grid>
         <hr
@@ -44,15 +47,35 @@ export default function M9_RegistrationList() {
             borderTop: "1px solid black",
           }}
         />
-        <Grid item>
+
+        <Grid item container direction="column" >
+          <Grid item container justifyContent="space-between"  >
+            <Grid item><Button variant='contained' style={{ width: "200px", height: "50px" }}>دانلود اکسل</Button></Grid>
+
+            <Grid item>
+              <ToggleButtonGroup
+                color="primary"
+                // value={alignment}
+                exclusive
+                // onChange={handleChange}
+                >
+                <ToggleButton value="true">جدیدترین</ToggleButton>
+                <ToggleButton value="false">قدیمی ترین</ToggleButton>
+              </ToggleButtonGroup>
+            </Grid>
+
+            <Grid item>
+              <TextField placeholder='جستجو بر اساس نام دانشجو' style={{ width: "300px" }} inputProps={{ dir: "rtl" }}></TextField></Grid>
+          </Grid>
+          <Grid item>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', justifyContent: 'center', marginTop: '7%' }}>
-            {professorList.map((item, index) => (
-              <StudentItem name={item.name} image={item.image} key={index} />
+            {studentList.map((item, index) => (
+              <M9_StudentCard name={item.name} image={item.image} key={index} />
             ))}
           </div>
         </Grid>
+        </Grid>
       </Grid>
     </DashboardLayout>
-  );
+  )
 }
-

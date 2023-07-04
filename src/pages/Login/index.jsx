@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { height } from "@mui/system";
@@ -8,31 +8,63 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom"
 import "./style.scss";
 
-
 function Login() {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [click, setclick] = useState(false);
+
     const options = {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json',"Access-Control-Allow-Origin": "*"  }
     };
-    const handleLogin = () => {
-        axios.post('http://localhost:3000/login', {
-            user_id: username,
-            password: password,
-        }, options)
-            .then(response => {
-                localStorage.setItem("token",response.data.token)
-                localStorage.setItem("role",response.data.role)
-                if(response.data.role==="student"){
-                    navigate("/test2")
-                }
-                
+    useEffect(() => {
+        const fetchLogin = async () => {
+          const res = await axios
+            .post("http://localhost:8080/api/login", {
+              id: username,
+              password: password,
+            }).then((resp)=>{
+              return resp.data
+            }).catch((err) => {
+              console.log(err);
             })
-            .catch(error => {
-                console.error(error);
-            });
-    }
+            if (res) {
+              console.log(res)
+              let currentUser = { 
+                faculty: res.user.faculty,
+                name: res.user.name,
+                email: res.user.email,
+                phone: res.user.phone,
+                type: res.user.type,
+                id: res.user.id,
+              }
+              console.log(currentUser)
+              console.log(res)
+              sessionStorage.setItem("name",currentUser.name);
+              sessionStorage.setItem("token",res.token);
+              if(currentUser.type==="student"){
+                navigate("/S2")
+              }else if (currentUser.type==="educationalManager"){
+                navigate("/M2")
+              } else if (currentUser.type==="admin"){
+                navigate("/I2")
+              }else{
+                navigate("/P2")
+              }
+            }
+        };
+        
+    
+        if (click) {
+            fetchLogin();
+            setclick(false);
+          }
+    
+      }, [click]);
+
+    const handleLogin = async () => {
+    setclick(true);
+    };
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
